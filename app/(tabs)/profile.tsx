@@ -1,5 +1,6 @@
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
+import { Button } from "@/components/ui/button";
 import { Image } from "expo-image";
+import { Text, TextInput, View } from "react-native";
 
 export default function ProfilePage() {
   return (
@@ -15,13 +16,13 @@ export default function ProfilePage() {
       </Text>
 
       {/* Access Code Section */}
-      <TouchableOpacity className="flex-row items-center bg-white border border-gray-300 rounded-full px-4 py-2 mb-6">
+      <View className="flex-row items-center bg-white border border-gray-300 rounded-full px-4 py-2 mb-6">
         <Image
           source={require("@/assets/images/icon.png")}
           className="w-6 h-6 mr-2"
         />
         <Text className="text-blue-500 font-bold">www.myfamifed.be</Text>
-      </TouchableOpacity>
+      </View>
 
       <Text className="text-center text-gray-600 mb-4">
         Connectez-vous avec votre numéro de registre national (NISS)
@@ -45,15 +46,12 @@ export default function ProfilePage() {
       </View>
 
       {/* Buttons Section */}
-      <TouchableOpacity className="bg-blue-500 w-full rounded-full py-3 mb-4">
-        <Text className="text-center text-white font-bold">Se connecter</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity className="bg-gray-300 w-full rounded-full py-3 mb-6">
-        <Text className="text-center text-gray-800 font-bold">
-          Se connecter avec itsme
-        </Text>
-      </TouchableOpacity>
+      <Button className="w-full mb-4">
+        <Text>Se connecter</Text>
+      </Button>
+      <Button variant="secondary" className="w-full mb-6">
+        <Text>Se connecter avec itsme</Text>
+      </Button>
 
       {/* Language Switch Section */}
       <View className="flex-row justify-center space-x-4">
