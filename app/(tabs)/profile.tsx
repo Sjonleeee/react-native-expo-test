@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { Text, TextInput, View } from "react-native";
 
@@ -46,11 +47,30 @@ export default function ProfilePage() {
       </View>
 
       {/* Buttons Section */}
-      <Button className="w-full mb-4">
-        <Text>Se connecter</Text>
+      <Button className="w-full flex-row items-center justify-center rounded-full bg-[#23396C] py-4 mb-4">
+        <MaterialCommunityIcons
+          name="link-variant"
+          size={28}
+          color="#fff"
+          style={{ marginRight: 12 }}
+        />
+        <Text className="text-white text-lg font-semibold">Se connecter</Text>
       </Button>
-      <Button variant="secondary" className="w-full mb-6">
-        <Text>Se connecter avec itsme</Text>
+      <Button
+        variant="outline"
+        className="w-full flex-row items-center justify-center rounded-full border-2 border-[#23396C] bg-white py-4 mb-6"
+      >
+        <Image
+          source={require("@/assets/images/icon.png")}
+          style={{
+            width: 32,
+            height: 32,
+            marginRight: 12,
+          }}
+        />
+        <Text className="text-[#23396C] text-lg font-semibold">
+          Se connecter avec itsme
+        </Text>
       </Button>
 
       {/* Language Switch Section */}

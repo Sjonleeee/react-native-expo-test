@@ -1,107 +1,226 @@
-import { Image } from "expo-image";
-import { Platform, StyleSheet, Text } from "react-native";
-
-import { HelloWave } from "@/components/hello-wave";
-import ParallaxScrollView from "@/components/parallax-scroll-view";
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
-import { Link } from "expo-router";
+import { Card } from "@/components/ui/card";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { ScrollView, Text, View } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={
-        <Image
-          source={require("@/assets/images/partial-react-logo.png")}
-          style={styles.reactLogo}
+    <ScrollView className="flex-1 bg-[#F3F6F8]">
+      {/* Header */}
+      <View className="flex-row items-center justify-between px-4 pt-8 pb-2 bg-white border-b border-gray-200">
+        <MaterialCommunityIcons name="menu" size={28} color="#23396C" />
+        <Text className="text-lg font-semibold text-[#23396C]">Aperçu</Text>
+        <MaterialCommunityIcons
+          name="account-circle-outline"
+          size={28}
+          color="#23396C"
         />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <Text className="text-5xl font-bold text-red-500">Welcome!</Text>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-          to see changes. Press{" "}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: "cmd + d",
-              android: "cmd + m",
-              web: "F12",
-            })}
-          </ThemedText>{" "}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction
-              title="Action"
-              icon="cube"
-              onPress={() => alert("Action pressed")}
+      </View>
+      {/* Payments */}
+      <View className="px-4 mt-4">
+        <View className="flex-row items-center justify-between mb-2">
+          <Text className="text-base font-semibold text-[#23396C]">
+            Derniers paiements
+          </Text>
+          <Text className="text-sm text-blue-500 font-medium">voir tout</Text>
+        </View>
+        {/* First row */}
+        <View className="-mx-4">
+          <View className="flex-row space-x-3 overflow-x-scroll px-4 pb-2">
+            {[1, 2, 3, 4].map((_, i) => (
+              <Card
+                key={i}
+                className="w-64 bg-white rounded-2xl shadow-sm p-3 mb-2 border border-[#E0E6ED]"
+              >
+                <View className="flex-row items-center justify-between mb-2">
+                  <Text className="text-xs text-[#23396C] font-medium">
+                    30/07/2015 - 12/2013
+                  </Text>
+                  <MaterialCommunityIcons
+                    name="information-outline"
+                    size={18}
+                    color="#4CB6A3"
+                  />
+                </View>
+                <View className="flex-row justify-between bg-[#F3F6F8] rounded-lg p-2">
+                  <View className="items-center flex-1">
+                    <Text className="text-xs text-gray-500">Dû</Text>
+                    <Text className="font-bold text-base text-[#23396C]">
+                      312,64 EUR
+                    </Text>
+                  </View>
+                  <View className="items-center flex-1">
+                    <Text className="text-xs text-gray-500">Retenue</Text>
+                    <Text className="font-bold text-base text-[#23396C]">
+                      312,64 EUR
+                    </Text>
+                  </View>
+                  <View className="items-center flex-1">
+                    <Text className="text-xs text-gray-500">Reçu</Text>
+                    <Text className="font-bold text-base text-[#23396C]">
+                      0,00 EUR
+                    </Text>
+                  </View>
+                </View>
+              </Card>
+            ))}
+          </View>
+        </View>
+        {/* Second row */}
+        <View className="-mx-4 mt-2">
+          <View className="flex-row space-x-3 overflow-x-scroll px-4 pb-2">
+            {[5, 6, 7, 8].map((_, i) => (
+              <Card
+                key={i}
+                className="w-64 bg-white rounded-2xl shadow-sm p-3 mb-2 border border-[#E0E6ED]"
+              >
+                <View className="flex-row items-center justify-between mb-2">
+                  <Text className="text-xs text-[#23396C] font-medium">
+                    30/07/2015 - 12/2013
+                  </Text>
+                  <MaterialCommunityIcons
+                    name="information-outline"
+                    size={18}
+                    color="#4CB6A3"
+                  />
+                </View>
+                <View className="flex-row justify-between bg-[#F3F6F8] rounded-lg p-2">
+                  <View className="items-center flex-1">
+                    <Text className="text-xs text-gray-500">Dû</Text>
+                    <Text className="font-bold text-base text-[#23396C]">
+                      312,64 EUR
+                    </Text>
+                  </View>
+                  <View className="items-center flex-1">
+                    <Text className="text-xs text-gray-500">Retenue</Text>
+                    <Text className="font-bold text-base text-[#23396C]">
+                      312,64 EUR
+                    </Text>
+                  </View>
+                  <View className="items-center flex-1">
+                    <Text className="text-xs text-gray-500">Reçu</Text>
+                    <Text className="font-bold text-base text-[#23396C]">
+                      0,00 EUR
+                    </Text>
+                  </View>
+                </View>
+              </Card>
+            ))}
+          </View>
+        </View>
+        <View className="items-center mt-2">
+          <View className="h-1 w-24 bg-[#E0E6ED] rounded-full flex-row items-center justify-center">
+            <View className="h-1 w-6 bg-[#4CB6A3] rounded-full" />
+          </View>
+        </View>
+      </View>
+      {/* Mon dossier */}
+      <View className="px-4 mt-4">
+        <Text className="text-base font-semibold text-[#23396C] mb-2">
+          Mon dossier
+        </Text>
+        <Card className="flex-row items-center bg-white rounded-xl p-3 mb-4">
+          <MaterialCommunityIcons
+            name="file-document-outline"
+            size={20}
+            color="#23396C"
+            style={{ marginRight: 8 }}
+          />
+          <Text className="text-sm text-[#23396C]">
+            Dossier 1 géré par Madame Valérie SOUPART
+          </Text>
+        </Card>
+      </View>
+      {/* Demandes */}
+      <View className="px-2 mt-2">
+        <Text className="text-base font-semibold text-[#23396C] mb-2">
+          Demandes
+        </Text>
+        <View className="flex-row flex-wrap gap-2 justify-between">
+          <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
+            <MaterialCommunityIcons
+              name="currency-eur"
+              size={36}
+              color="#fff"
             />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert("Share pressed")}
+            <Text className="text-white font-medium mt-2 text-sm text-center">
+              Attestation de paiement
+            </Text>
+          </Card>
+          <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
+            <MaterialCommunityIcons
+              name="baby-face-outline"
+              size={36}
+              color="#fff"
             />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert("Delete pressed")}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
-
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">
-            npm run reset-project
-          </ThemedText>{" "}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{" "}
-          directory. This will move the current{" "}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{" "}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+            <Text className="text-white font-medium mt-2 text-sm text-center">
+              Prime de naissance anticipée
+            </Text>
+          </Card>
+          <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
+            <MaterialCommunityIcons
+              name="file-document-outline"
+              size={36}
+              color="#fff"
+            />
+            <Text className="text-white font-medium mt-2 text-sm text-center">
+              Renvoi d'un formulaire
+            </Text>
+          </Card>
+          <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
+            <MaterialCommunityIcons
+              name="bank-transfer"
+              size={36}
+              color="#fff"
+            />
+            <Text className="text-white font-medium mt-2 text-sm text-center">
+              Demande de changement de numéro bancaire
+            </Text>
+          </Card>
+        </View>
+      </View>
+      {/* Gestionnaire de dossier */}
+      <View className="px-4 mt-4">
+        <Text className="text-base font-semibold text-[#23396C] mb-2">
+          Gestionnaire de dossier
+        </Text>
+        <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
+          <MaterialCommunityIcons
+            name="account-outline"
+            size={20}
+            color="#23396C"
+            style={{ marginRight: 8 }}
+          />
+          <Text className="text-sm text-[#23396C]">Madame Valérie SOUPART</Text>
+        </Card>
+        <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
+          <MaterialCommunityIcons
+            name="phone-outline"
+            size={20}
+            color="#23396C"
+            style={{ marginRight: 8 }}
+          />
+          <Text className="text-sm text-[#23396C]">+32 2 237 25 00</Text>
+        </Card>
+        <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
+          <MaterialCommunityIcons
+            name="email-outline"
+            size={20}
+            color="#23396C"
+            style={{ marginRight: 8 }}
+          />
+          <Text className="text-sm text-[#23396C]">
+            valerie.soupart@famifed.be
+          </Text>
+        </Card>
+      </View>
+      {/* Footer */}
+      <View className="items-center mt-2 mb-4">
+        <Text className="text-xs text-gray-500">
+          Plus deinformations sur http://famiris.brussels
+        </Text>
+      </View>
+      {/* Bottom Navigation */}
+     
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});

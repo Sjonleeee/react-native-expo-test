@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
 
@@ -17,12 +18,16 @@ export default function TabLayout() {
         tabBarButton: HapticTab,
       }}
     >
-      <Tabs.Screen
+       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Aperçu",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <MaterialCommunityIcons
+              name="view-grid-outline"
+              size={24}
+              color={color}
+            />
           ),
         }}
       />
@@ -31,7 +36,11 @@ export default function TabLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="person.fill" color={color} />
+            <MaterialCommunityIcons
+              name="message-outline"
+              size={24}
+              color={color}
+            />
           ),
         }}
       />
@@ -47,3 +56,30 @@ export default function TabLayout() {
     </Tabs>
   );
 }
+
+  //  <View className="flex-row items-center justify-around h-16 border-t border-gray-200 bg-white">
+  //         <View className="items-center">
+  //           <MaterialCommunityIcons
+  //             name="view-grid-outline"
+  //             size={24}
+  //             color="#23396C"
+  //           />
+  //           <Text className="text-xs text-[#23396C]">Aperçu</Text>
+  //         </View>
+  //         <View className="items-center">
+  //           <MaterialCommunityIcons
+  //             name="message-outline"
+  //             size={24}
+  //             color="#23396C"
+  //           />
+  //           <Text className="text-xs text-gray-500">Contact</Text>
+  //         </View>
+  //         <View className="items-center">
+  //           <MaterialCommunityIcons
+  //             name="information-outline"
+  //             size={24}
+  //             color="#23396C"
+  //           />
+  //           <Text className="text-xs text-gray-500">À propos</Text>
+  //         </View>
+  //       </View>
