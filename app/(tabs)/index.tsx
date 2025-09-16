@@ -1,27 +1,17 @@
 import { MenuModal } from "@/components/menu-modal";
 import { Card } from "@/components/ui/card";
+import { Header } from "@/components/ui/Header";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 export default function HomeScreen() {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <View className="flex-1 bg-[#F3F6F8]">
       <MenuModal visible={showMenu} onClose={() => setShowMenu(false)} />
+      <Header title="Aperçu" onMenuPress={() => setShowMenu(true)} />
       <ScrollView>
-        {/* Header */}
-        <View className="flex-row items-center justify-between px-4 pt-8 pb-2 bg-white border-b border-gray-200">
-          <TouchableOpacity onPress={() => setShowMenu(true)}>
-            <MaterialCommunityIcons name="menu" size={28} color="#23396C" />
-          </TouchableOpacity>
-          <Text className="text-lg font-semibold text-[#23396C]">Aperçu</Text>
-          <MaterialCommunityIcons
-            name="account-circle-outline"
-            size={28}
-            color="#23396C"
-          />
-        </View>
         {/* Payments */}
         <View className="px-4 mt-4">
           <View className="flex-row items-center justify-between mb-2">
