@@ -1,8 +1,37 @@
+import { PaymentModal } from "@/components/payment-modal";
 import { Header } from "@/components/ui/Header";
 import { Card } from "@/components/ui/card";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+
+// Reusable card for Demandes section
+export function FeatureCard({ icon, label }: { icon: string; label: string }) {
+  return (
+    <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
+      <MaterialCommunityIcons name={icon as any} size={36} color="#fff" />
+      <Text className="text-white font-medium mt-2 text-sm text-center">
+        {label}
+      </Text>
+    </Card>
+  );
+}
+
+// Reusable info row for dossier manager
+export function InfoRow({ icon, text }: { icon: string; text: string }) {
+  return (
+    <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
+      <MaterialCommunityIcons
+        name={icon as any}
+        size={20}
+        color="#23396C"
+        style={{ marginRight: 8 }}
+      />
+      <Text className="text-sm text-[#23396C]">{text}</Text>
+    </Card>
+  );
+}
 
 export function PaymentRow({ items }: { items: number[] }) {
   return (
@@ -76,9 +105,12 @@ export function PaymentRow({ items }: { items: number[] }) {
 }
 
 export default function HomeScreen() {
+  const router = useRouter();
+  const [showPayments, setShowPayments] = React.useState(false);
+
   return (
     <View className="flex-1 bg-[#F3F6F8]">
-      <Header />
+      <Header onOpenPayments={() => setShowPayments(true)} />
       <ScrollView>
         {/* Payments */}
         <View className="px-4 mt-4">
@@ -86,7 +118,11 @@ export default function HomeScreen() {
             <Text className="text-base font-semibold text-[#23396C]">
               Derniers paiements
             </Text>
-            <Text className="text-sm text-blue-500 font-medium">voir tout</Text>
+            <TouchableOpacity onPress={() => router.push("/paiements")}>
+              <Text className="text-sm text-blue-500 font-medium">
+                voir tout
+              </Text>
+            </TouchableOpacity>
           </View>
           {/* First row */}
           <View className="-mx-4">
@@ -126,46 +162,19 @@ export default function HomeScreen() {
             Demandes
           </Text>
           <View className="flex-row flex-wrap gap-2 justify-between">
-            <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
-              <MaterialCommunityIcons
-                name="currency-eur"
-                size={36}
-                color="#fff"
-              />
-              <Text className="text-white font-medium mt-2 text-sm text-center">
-                Attestation de paiement
-              </Text>
-            </Card>
-            <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
-              <MaterialCommunityIcons
-                name="baby-face-outline"
-                size={36}
-                color="#fff"
-              />
-              <Text className="text-white font-medium mt-2 text-sm text-center">
-                Prime de naissance anticipée
-              </Text>
-            </Card>
-            <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
-              <MaterialCommunityIcons
-                name="file-document-outline"
-                size={36}
-                color="#fff"
-              />
-              <Text className="text-white font-medium mt-2 text-sm text-center">
-                Renvoi d&apos;un formulaire
-              </Text>
-            </Card>
-            <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
-              <MaterialCommunityIcons
-                name="bank-transfer"
-                size={36}
-                color="#fff"
-              />
-              <Text className="text-white font-medium mt-2 text-sm text-center">
-                Demande de changement de numéro bancaire
-              </Text>
-            </Card>
+            <FeatureCard icon="currency-eur" label="Attestation de paiement" />
+            <FeatureCard
+              icon="baby-face-outline"
+              label="Prime de naissance anticipée"
+            />
+            <FeatureCard
+              icon="file-document-outline"
+              label="Renvoi d'un formulaire"
+            />
+            <FeatureCard
+              icon="bank-transfer"
+              label="Demande de changement de numéro bancaire"
+            />
           </View>
         </View>
         {/* Gestionnaire de dossier */}
@@ -173,37 +182,9 @@ export default function HomeScreen() {
           <Text className="text-base font-semibold text-[#23396C] mb-2">
             Gestionnaire de dossier
           </Text>
-          <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
-            <MaterialCommunityIcons
-              name="account-outline"
-              size={20}
-              color="#23396C"
-              style={{ marginRight: 8 }}
-            />
-            <Text className="text-sm text-[#23396C]">
-              Madame Valérie SOUPART
-            </Text>
-          </Card>
-          <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
-            <MaterialCommunityIcons
-              name="phone-outline"
-              size={20}
-              color="#23396C"
-              style={{ marginRight: 8 }}
-            />
-            <Text className="text-sm text-[#23396C]">+32 2 237 25 00</Text>
-          </Card>
-          <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
-            <MaterialCommunityIcons
-              name="email-outline"
-              size={20}
-              color="#23396C"
-              style={{ marginRight: 8 }}
-            />
-            <Text className="text-sm text-[#23396C]">
-              valerie.soupart@famifed.be
-            </Text>
-          </Card>
+          <InfoRow icon="account-outline" text="Madame Valérie SOUPART" />
+          <InfoRow icon="phone-outline" text="+32 2 237 25 00" />
+          <InfoRow icon="email-outline" text="valerie.soupart@famifed.be" />
         </View>
         {/* Footer */}
         <View className="items-center mt-2 mb-4">
@@ -213,6 +194,11 @@ export default function HomeScreen() {
         </View>
         {/* Bottom Navigation */}
       </ScrollView>
+      <PaymentModal
+        visible={showPayments}
+        onClose={() => setShowPayments(false)}
+        onOpenProfile={() => router.push("/mes-donnees")}
+      />
     </View>
   );
 }

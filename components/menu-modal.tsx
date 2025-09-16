@@ -2,14 +2,42 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
+export function MenuItem({
+  icon,
+  label,
+  onPress,
+}: {
+  icon?: string;
+  label: string;
+  onPress?: () => void;
+}) {
+  return (
+    <TouchableOpacity onPress={onPress} disabled={!onPress}>
+      <View className="border-t border-[#E0E6ED] py-3 flex-row items-center">
+        {icon && (
+          <MaterialCommunityIcons
+            name={icon as any}
+            size={20}
+            color="#23396C"
+            style={{ marginRight: 8 }}
+          />
+        )}
+        <Text className="text-[#23396C] text-[15px]">{label}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
+
 export function MenuModal({
   visible,
   onClose,
   onOpenProfile,
+  onOpenPayments,
 }: {
   visible: boolean;
   onClose: () => void;
   onOpenProfile: () => void;
+  onOpenPayments: () => void;
 }) {
   if (!visible) return null;
   return (
@@ -53,14 +81,12 @@ export function MenuModal({
               Déconnexion
             </Text>
           </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">Mes données</Text>
-          </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">
-              Gestionnaire de dossier
-            </Text>
-          </View>
+          <MenuItem
+            icon="account-outline"
+            label="Mes données"
+            onPress={onOpenProfile}
+          />
+          <MenuItem icon="account-outline" label="Gestionnaire de dossier" />
         </View>
         {/* Mes paiements */}
         <View className="mb-6">
@@ -75,11 +101,11 @@ export function MenuModal({
               Mes paiements
             </Text>
           </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">
-              Derniers paiements
-            </Text>
-          </View>
+          <MenuItem
+            icon="sync"
+            label="Derniers paiements"
+            onPress={onOpenPayments}
+          />
         </View>
         {/* Mes demandes */}
         <View className="mb-6">
@@ -94,26 +120,22 @@ export function MenuModal({
               Mes demandes
             </Text>
           </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">
-              Attestation de paiement
-            </Text>
-          </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">
-              Prime de naissance anticipée
-            </Text>
-          </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">
-              Renvoi d&apos;un formulaire
-            </Text>
-          </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">
-              Demande de changement de carte bancaire
-            </Text>
-          </View>
+          <MenuItem
+            icon="file-document-outline"
+            label="Attestation de paiement"
+          />
+          <MenuItem
+            icon="file-document-outline"
+            label="Prime de naissance anticipée"
+          />
+          <MenuItem
+            icon="file-document-outline"
+            label="Renvoi d'un formulaire"
+          />
+          <MenuItem
+            icon="bank-transfer"
+            label="Demande de changement de carte bancaire"
+          />
         </View>
         {/* Réglages */}
         <View className="mb-6">
@@ -126,14 +148,8 @@ export function MenuModal({
             />
             <Text className="font-bold text-[#23396C] text-base">Réglages</Text>
           </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">Langue</Text>
-          </View>
-          <View className="border-t border-[#E0E6ED] py-3">
-            <Text className="text-[#23396C] text-[15px]">
-              A propos de My Famiris
-            </Text>
-          </View>
+          <MenuItem icon="cog-outline" label="Langue" />
+          <MenuItem icon="cog-outline" label="A propos de My Famiris" />
         </View>
       </ScrollView>
     </View>
