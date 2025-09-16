@@ -35,6 +35,7 @@ export function MenuModal({
   onOpenPayments,
   onOpenAttestation,
   onOpenPrimeNaissance,
+  onOpenFormResend,
 }: {
   visible: boolean;
   onClose: () => void;
@@ -42,6 +43,7 @@ export function MenuModal({
   onOpenPayments: () => void;
   onOpenAttestation: () => void;
   onOpenPrimeNaissance: () => void;
+  onOpenFormResend: () => void;
 }) {
   // Handler voor profiel-icoon in header
   const handleProfileHeaderPress = () => {
@@ -144,6 +146,7 @@ export function MenuModal({
           <MenuItem
             icon="file-document-outline"
             label="Renvoi d'un formulaire"
+            onPress={onOpenFormResend}
           />
           <MenuItem
             icon="bank-transfer"
