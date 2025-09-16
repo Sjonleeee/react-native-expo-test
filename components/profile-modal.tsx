@@ -1,17 +1,16 @@
-import { MovedModal } from "@/components/moved-modal";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export function ProfileModal({
   visible,
   onClose,
+  onOpenMoved,
 }: {
   visible: boolean;
   onClose: () => void;
+  onOpenMoved: () => void;
 }) {
-  const [showMoved, setShowMoved] = useState(false);
-
   if (!visible) return null;
   return (
     <View className="absolute inset-0 bg-white z-50">
@@ -112,7 +111,7 @@ export function ProfileModal({
         <View className="px-6 mt-8 mb-8">
           <TouchableOpacity
             className="flex-row items-center justify-center bg-[#23396C] rounded-full py-4"
-            onPress={() => setShowMoved(true)}
+            onPress={onOpenMoved}
           >
             <MaterialCommunityIcons
               name="information-outline"
@@ -126,7 +125,6 @@ export function ProfileModal({
           </TouchableOpacity>
         </View>
       </ScrollView>
-      <MovedModal visible={showMoved} onClose={() => setShowMoved(false)} />
     </View>
   );
 }

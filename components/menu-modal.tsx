@@ -5,9 +5,11 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 export function MenuModal({
   visible,
   onClose,
+  onOpenProfile,
 }: {
   visible: boolean;
   onClose: () => void;
+  onOpenProfile: () => void;
 }) {
   if (!visible) return null;
   return (
@@ -24,11 +26,13 @@ export function MenuModal({
           Menu
         </Text>
         <View className="items-center justify-center">
-          <MaterialCommunityIcons
-            name="account-circle-outline"
-            size={28}
-            color="#23396C"
-          />
+          <TouchableOpacity onPress={onOpenProfile}>
+            <MaterialCommunityIcons
+              name="account-circle-outline"
+              size={28}
+              color="#23396C"
+            />
+          </TouchableOpacity>
         </View>
       </View>
       <ScrollView className="flex-1 px-4 pt-2">
