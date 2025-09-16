@@ -1,16 +1,13 @@
-import { MenuModal } from "@/components/menu-modal";
-import { Card } from "@/components/ui/card";
 import { Header } from "@/components/ui/Header";
+import { Card } from "@/components/ui/card";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React from "react";
 import { ScrollView, Text, View } from "react-native";
 
 export default function HomeScreen() {
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <View className="flex-1 bg-[#F3F6F8]">
-      <MenuModal visible={showMenu} onClose={() => setShowMenu(false)} />
-      <Header title="Aperçu" onMenuPress={() => setShowMenu(true)} />
+      <Header />
       <ScrollView>
         {/* Payments */}
         <View className="px-4 mt-4">

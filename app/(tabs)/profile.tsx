@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { Header } from "@/components/ui/Header";
+import { Button } from "@/components/ui/button";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { Text, TextInput, View } from "react-native";
@@ -7,8 +7,7 @@ import { Text, TextInput, View } from "react-native";
 export default function ProfilePage() {
   return (
     <View className="flex-1 bg-gray-100">
-      {/* Header Section */}
-      <Header title="Profile" />
+      <Header />
       <View className="flex-1 justify-center items-center p-6">
         {/* Logo Section */}
         <Image

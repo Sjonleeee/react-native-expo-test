@@ -7,12 +7,14 @@ export function MenuModal({ visible, onClose }: { visible: boolean; onClose: () 
   return (
     <View className="absolute inset-0 bg-white z-50">
       {/* Header */}
-      <View className="flex-row items-center justify-between pt-12 px-4 pb-2 border-b-2 border-[#E0E6ED]">
-        <TouchableOpacity onPress={onClose}>
+      <View className="flex-row items-center justify-between px-4 py-4 bg-white border-b border-gray-200">
+        <TouchableOpacity onPress={onClose} className="items-center justify-center">
           <MaterialCommunityIcons name="arrow-left" size={28} color="#23396C" />
         </TouchableOpacity>
-        <Text className="text-lg font-semibold text-[#23396C]">Menu</Text>
-        <MaterialCommunityIcons name="account-circle-outline" size={28} color="#23396C" />
+        <Text className="text-lg font-semibold text-[#23396C] text-center flex-1">Menu</Text>
+        <View className="items-center justify-center">
+          <MaterialCommunityIcons name="account-circle-outline" size={28} color="#23396C" />
+        </View>
       </View>
       <ScrollView className="flex-1 px-4 pt-2">
         {/* Mon dossier */}
