@@ -1,17 +1,14 @@
-import { Input } from "@/components/ui/input";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import {
     Modal,
     ScrollView,
-    Switch,
     Text,
     TouchableOpacity,
     View,
 } from "react-native";
 
-// Attestation modal for requesting payment attestations
-export function AttestationModal({
+export function PrimeNaissanceModal({
   visible,
   onClose,
   onOpenProfile,
@@ -20,8 +17,6 @@ export function AttestationModal({
   onClose: () => void;
   onOpenProfile: () => void;
 }) {
-  const [withPaymentInfo, setWithPaymentInfo] = React.useState(false);
-
   if (!visible) return null;
   return (
     <Modal visible={visible} animationType="slide" transparent>
@@ -72,7 +67,7 @@ export function AttestationModal({
                 textAlign: "center",
               }}
             >
-              Attestation de paiement
+              Prime de naissance anticipée
             </Text>
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <TouchableOpacity onPress={onOpenProfile}>
@@ -85,53 +80,61 @@ export function AttestationModal({
             </View>
           </View>
           <ScrollView contentContainerStyle={{ padding: 24 }}>
-            
-            <Text style={{ color: "#23396C", fontWeight: "bold", fontSize: 16, marginBottom: 8 }}>
-              Date de début
+            <Text style={{ color: "#23396C", fontSize: 16, marginBottom: 24 }}>
+              Pour une prime de naissance anticipée, il suffit de nous envoyer
+              l’attestation de votre médecin ou sage-femme. Veuillez prendre une
+              photo de ce document
             </Text>
-            <View style={{ flexDirection: "row", alignItems: "center", paddingVertical: 12, marginBottom: 16 }}>
-              <MaterialCommunityIcons name="calendar" size={22} color="#23396C" />
-              <Input
-                className="flex-1 ml-2 text-base"
-                placeholder="Choisissez une date"
-                placeholderTextColor="#A0AEC0"
-                editable={false}
-              />
-            </View>
-            <Text style={{ color: "#23396C", fontWeight: "bold", fontSize: 16, marginBottom: 8 }}>
-              Date de fin
+            <Text
+              style={{
+                color: "#23396C",
+                fontWeight: "bold",
+                fontSize: 16,
+                marginBottom: 8,
+              }}
+            >
+              Document
             </Text>
-            <View style={{ flexDirection: "row", alignItems: "center", paddingVertical: 12, marginBottom: 16 }}>
-              <MaterialCommunityIcons name="calendar" size={22} color="#23396C" />
-              <Input
-                className="flex-1 ml-2 text-base"
-                placeholder="Choisissez une date"
-                placeholderTextColor="#A0AEC0"
-                editable={false}
-              />
-            </View>
-            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
-              <Text style={{ color: "#23396C", fontWeight: "bold", fontSize: 16 }}>
-                Avec les informations de paiement?
-              </Text>
-              <Switch
-                value={withPaymentInfo}
-                onValueChange={setWithPaymentInfo}
-                trackColor={{ false: "#E0E6ED", true: "#23396C" }}
-                thumbColor={withPaymentInfo ? "#fff" : "#fff"}
-              />
-            </View>
-            <TouchableOpacity
-              style={{ backgroundColor: "#23396C", borderRadius: 9999, flexDirection: "row", alignItems: "center", justifyContent: "center", paddingVertical: 16, marginTop: 16 }}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                borderWidth: 1,
+                borderColor: "#23396C",
+                borderRadius: 9999,
+                paddingHorizontal: 16,
+                paddingVertical: 12,
+                marginBottom: 24,
+              }}
             >
               <MaterialCommunityIcons
-                name="download"
+                name="cloud-upload-outline"
+                size={22}
+                color="#23396C"
+              />
+              <Text style={{ marginLeft: 8, color: "#23396C", fontSize: 16, opacity: 0.3 }}>
+                Attestation médicale (photo ou PDF)
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={{
+                backgroundColor: "#23396C",
+                borderRadius: 9999,
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                paddingVertical: 16,
+                marginTop: 8,
+              }}
+            >
+              <MaterialCommunityIcons
+                name="camera-outline"
                 size={22}
                 color="#fff"
                 style={{ marginRight: 8 }}
               />
               <Text style={{ color: "#fff", fontWeight: "600", fontSize: 16 }}>
-                Télécharger l’attestation
+                Prendre une photo
               </Text>
             </TouchableOpacity>
           </ScrollView>

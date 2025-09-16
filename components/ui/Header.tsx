@@ -2,6 +2,7 @@ import { AttestationModal } from "@/components/attestation-modal";
 import { MenuModal } from "@/components/menu-modal";
 import { MovedModal } from "@/components/moved-modal";
 import { PaymentModal } from "@/components/payment-modal";
+import { PrimeNaissanceModal } from "@/components/prime-naissance-modal";
 import { ProfileModal } from "@/components/profile-modal";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useIsFocused, useRoute } from "@react-navigation/native";
@@ -46,7 +47,7 @@ export const Header: React.FC<{
 }) => {
   const route = useRoute();
   const [activeModal, setActiveModal] = useState<
-    null | "menu" | "profile" | "payments" | "attestation"
+    null | "menu" | "profile" | "payments" | "attestation" | "primeNaissance"
   >(null);
   const [showMoved, setShowMoved] = useState(false);
   const isFocused = useIsFocused();
@@ -62,6 +63,7 @@ export const Header: React.FC<{
   const openProfile = useCallback(() => setActiveModal("profile"), []);
   const openPayments = useCallback(() => setActiveModal("payments"), []);
   const openAttestation = useCallback(() => setActiveModal("attestation"), []);
+  const openPrimeNaissance = useCallback(() => setActiveModal("primeNaissance"), []);
   const closeModal = useCallback(() => setActiveModal(null), []);
   const openMoved = useCallback(() => setShowMoved(true), []);
   const closeMoved = useCallback(() => setShowMoved(false), []);
@@ -119,6 +121,7 @@ export const Header: React.FC<{
           onOpenProfile={openProfile}
           onOpenPayments={openPayments}
           onOpenAttestation={openAttestation}
+          onOpenPrimeNaissance={openPrimeNaissance}
         />
       </OverlayModal>
       <OverlayModal visible={activeModal === "profile"}>
@@ -137,6 +140,9 @@ export const Header: React.FC<{
       </OverlayModal>
       <OverlayModal visible={activeModal === "attestation"}>
         <AttestationModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+      </OverlayModal>
+      <OverlayModal visible={activeModal === "primeNaissance"}>
+        <PrimeNaissanceModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
       </OverlayModal>
       <OverlayModal visible={showMoved} zIndex={101}>
         <MovedModal visible={true} onClose={closeMoved} />

@@ -34,12 +34,14 @@ export function MenuModal({
   onOpenProfile,
   onOpenPayments,
   onOpenAttestation,
+  onOpenPrimeNaissance,
 }: {
   visible: boolean;
   onClose: () => void;
   onOpenProfile: () => void;
   onOpenPayments: () => void;
   onOpenAttestation: () => void;
+  onOpenPrimeNaissance: () => void;
 }) {
   // Handler voor profiel-icoon in header
   const handleProfileHeaderPress = () => {
@@ -137,6 +139,7 @@ export function MenuModal({
           <MenuItem
             icon="file-document-outline"
             label="Prime de naissance anticipée"
+            onPress={onOpenPrimeNaissance}
           />
           <MenuItem
             icon="file-document-outline"
