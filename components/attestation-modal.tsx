@@ -1,3 +1,4 @@
+import { Input } from "@/components/ui/input";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import {
@@ -5,9 +6,8 @@ import {
     ScrollView,
     Switch,
     Text,
-    TextInput,
     TouchableOpacity,
-    View,
+    View
 } from "react-native";
 
 export function AttestationModal({
@@ -90,13 +90,13 @@ export function AttestationModal({
             <Text className="text-[#23396C] font-bold text-base mb-2">
               Date de début
             </Text>
-            <View className="flex-row items-center border border-[#23396C] rounded-full px-4 py-3 mb-4">
+            <View className="flex-row items-center py-3 mb-4">
               <MaterialCommunityIcons
                 name="calendar"
                 size={22}
                 color="#23396C"
               />
-              <TextInput
+              <Input
                 className="flex-1 ml-2 text-base"
                 placeholder="Choisissez une date"
                 placeholderTextColor="#A0AEC0"
@@ -106,13 +106,13 @@ export function AttestationModal({
             <Text className="text-[#23396C] font-bold text-base mb-2">
               Date de fin
             </Text>
-            <View className="flex-row items-center border border-[#23396C] rounded-full px-4 py-3 mb-4">
+            <View className="flex-row items-center py-3 mb-4">
               <MaterialCommunityIcons
                 name="calendar"
                 size={22}
                 color="#23396C"
               />
-              <TextInput
+              <Input
                 className="flex-1 ml-2 text-base"
                 placeholder="Choisissez une date"
                 placeholderTextColor="#A0AEC0"

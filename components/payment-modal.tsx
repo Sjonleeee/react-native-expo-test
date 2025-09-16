@@ -20,11 +20,36 @@ export function PaymentModal({
 }) {
   // Dummy data
   const payments = [
-    { section: "Juillet 2015", rows: [1, 2, 3] },
-    { section: "Juin 2015", rows: [1, 2, 3] },
-    { section: "Mai 2015", rows: [1, 2] },
-    { section: "Avril 2015", rows: [1, 2] },
-    { section: "Mars 2015", rows: [1, 2, 3, 4] },
+    { section: "Juillet 2015", rows: [
+      { date: "30/07", month: "12/2013", due: "312,64", retenue: "312,64", recu: "0,00" },
+      { date: "29/07", month: "11/2013", due: "100,00", retenue: "0,00", recu: "100,00" },
+      { date: "28/07", month: "10/2013", due: "50,00", retenue: "10,00", recu: "40,00" },
+    ] },
+    { section: "Juin 2015", rows: [
+      { date: "15/06", month: "06/2015", due: "200,00", retenue: "0,00", recu: "200,00" },
+      { date: "10/06", month: "05/2015", due: "150,00", retenue: "20,00", recu: "130,00" },
+      { date: "05/06", month: "04/2015", due: "80,00", retenue: "0,00", recu: "80,00" },
+    ] },
+    { section: "Mai 2015", rows: [
+      { date: "01/05", month: "03/2015", due: "60,00", retenue: "0,00", recu: "60,00" },
+      { date: "25/05", month: "02/2015", due: "90,00", retenue: "10,00", recu: "80,00" },
+    ] },
+    { section: "Avril 2015", rows: [
+      { date: "10/04", month: "01/2015", due: "120,00", retenue: "0,00", recu: "120,00" },
+      { date: "05/04", month: "12/2014", due: "70,00", retenue: "5,00", recu: "65,00" },
+    ] },
+    { section: "Mars 2015", rows: [
+      { date: "20/03", month: "11/2014", due: "110,00", retenue: "0,00", recu: "110,00" },
+      { date: "15/03", month: "10/2014", due: "95,00", retenue: "15,00", recu: "80,00" },
+      { date: "10/03", month: "09/2014", due: "85,00", retenue: "0,00", recu: "85,00" },
+      { date: "05/03", month: "08/2014", due: "60,00", retenue: "0,00", recu: "60,00" },
+    ] },
+     { section: "April 2015", rows: [
+      { date: "20/04", month: "11/2014", due: "110,00", retenue: "0,00", recu: "110,00" },
+      { date: "15/04", month: "10/2014", due: "95,00", retenue: "15,00", recu: "80,00" },
+      { date: "10/04", month: "09/2014", due: "85,00", retenue: "0,00", recu: "85,00" },
+      { date: "05/04", month: "08/2014", due: "60,00", retenue: "0,00", recu: "60,00" },
+    ] },
   ];
 
   if (!visible) return null;
@@ -143,83 +168,19 @@ export function PaymentModal({
             </Text>
           </View>
           <View style={{ flex: 1 }}>
-            <ScrollView
-              showsVerticalScrollIndicator={true}
-              style={{ flex: 1, paddingHorizontal: 16 }}
-            >
+            <ScrollView showsVerticalScrollIndicator={true} style={{ flex: 1, paddingHorizontal: 16 }}>
               {payments.map((section, idx) => (
                 <View key={idx} style={{ marginBottom: 8 }}>
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      fontWeight: "bold",
-                      color: "#23396C",
-                      marginBottom: 8,
-                      marginTop: 24,
-                    }}
-                  >
+                  <Text style={{ fontSize: 16, fontWeight: "bold", color: "#23396C", marginBottom: 8, marginTop: 24 }}>
                     {section.section}
                   </Text>
                   {section.rows.map((row, i) => (
-                    <View
-                      key={i}
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        paddingVertical: 8,
-                        borderBottomWidth: 1,
-                        borderBottomColor: "#E0E6ED",
-                      }}
-                    >
-                      <Text
-                        style={{ width: 80, fontSize: 12, color: "#2D3748" }}
-                      >
-                        30/07
-                      </Text>
-                      <Text
-                        style={{ width: 80, fontSize: 12, color: "#2D3748" }}
-                      >
-                        12/2013
-                      </Text>
-                      <Text
-                        style={{
-                          width: 80,
-                          fontSize: 12,
-                          fontWeight: "bold",
-                          color: "#23396C",
-                        }}
-                      >
-                        312,64{" "}
-                        <Text style={{ fontSize: 10, color: "#718096" }}>
-                          EUR
-                        </Text>
-                      </Text>
-                      <Text
-                        style={{
-                          width: 80,
-                          fontSize: 12,
-                          fontWeight: "bold",
-                          color: "#23396C",
-                        }}
-                      >
-                        312,64{" "}
-                        <Text style={{ fontSize: 10, color: "#718096" }}>
-                          EUR
-                        </Text>
-                      </Text>
-                      <Text
-                        style={{
-                          width: 80,
-                          fontSize: 12,
-                          fontWeight: "bold",
-                          color: "#23396C",
-                        }}
-                      >
-                        0,00{" "}
-                        <Text style={{ fontSize: 10, color: "#718096" }}>
-                          EUR
-                        </Text>
-                      </Text>
+                    <View key={i} style={{ flexDirection: "row", alignItems: "center", paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: "#E0E6ED" }}>
+                      <Text style={{ width: 80, fontSize: 12, color: "#2D3748" }}>{row.date}</Text>
+                      <Text style={{ width: 80, fontSize: 12, color: "#2D3748" }}>{row.month}</Text>
+                      <Text style={{ width: 80, fontSize: 12, fontWeight: "bold", color: "#23396C" }}>{row.due} <Text style={{ fontSize: 10, color: "#718096" }}>EUR</Text></Text>
+                      <Text style={{ width: 80, fontSize: 12, fontWeight: "bold", color: "#23396C" }}>{row.retenue} <Text style={{ fontSize: 10, color: "#718096" }}>EUR</Text></Text>
+                      <Text style={{ width: 80, fontSize: 12, fontWeight: "bold", color: "#23396C" }}>{row.recu} <Text style={{ fontSize: 10, color: "#718096" }}>EUR</Text></Text>
                     </View>
                   ))}
                 </View>
