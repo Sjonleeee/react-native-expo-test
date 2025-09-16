@@ -68,7 +68,9 @@ export function ProfileModal({
             </Text>
           </View>
           <View className="border-t border-gray-300 py-3">
-            <Text className="text-gray-500 text-sm mb-1">Date de naissance</Text>
+            <Text className="text-gray-500 text-sm mb-1">
+              Date de naissance
+            </Text>
             <Text className="text-base text-gray-800">19 septembre 1945</Text>
           </View>
           <View className="border-t border-gray-300 py-3">
@@ -83,21 +85,25 @@ export function ProfileModal({
           <View className="flex-row items-center mb-2">
             <MaterialCommunityIcons
               name="send"
-              size={24}
+              size={20}
               color="#23396C"
               style={{ marginRight: 8 }}
             />
-            <Text className="font-semibold text-[#23396C] text-lg">
+            <Text className="font-semibold text-[#23396C] text-[15px]">
               Mes données de contacte
             </Text>
           </View>
           <View className="border-t border-gray-300 py-3">
-            <Text className="text-gray-500 text-sm mb-1">Numéro téléphone</Text>
-            <Text className="text-base text-gray-800">+32 463 96 63 63</Text>
+            <Text className="text-gray-500 text-[13px] mb-1">
+              Numéro téléphone
+            </Text>
+            <Text className="text-[16px] text-gray-800">+32 463 96 63 63</Text>
           </View>
           <View className="border-t border-gray-300 py-3">
-            <Text className="text-gray-500 text-sm mb-1">Adresse e-mail</Text>
-            <Text className="text-base text-gray-800">
+            <Text className="text-gray-500 text-[13px] mb-1">
+              Adresse e-mail
+            </Text>
+            <Text className="text-[16px] text-gray-800">
               michael.jackson@beatit.be
             </Text>
           </View>
@@ -110,11 +116,11 @@ export function ProfileModal({
           >
             <MaterialCommunityIcons
               name="information-outline"
-              size={24}
+              size={20}
               color="#fff"
               style={{ marginRight: 8 }}
             />
-            <Text className="text-white text-lg font-semibold">
+            <Text className="text-white text-[15px] font-semibold">
               Vous avez déménagé
             </Text>
           </TouchableOpacity>

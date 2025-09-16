@@ -19,40 +19,67 @@ export default function HomeScreen() {
           </View>
           {/* First row */}
           <View className="-mx-4">
-            <View className="flex-row space-x-3 overflow-x-scroll px-4 pb-2">
+            <View className="flex-row space-x-3 overflow-x-scroll px-4 ">
               {[1, 2, 3, 4].map((_, i) => (
-                <Card
-                  key={i}
-                  className="w-64 bg-white rounded-2xl shadow-sm p-3 mb-2 border border-[#E0E6ED]"
-                >
-                  <View className="flex-row items-center justify-between mb-2">
-                    <Text className="text-xs text-[#23396C] font-medium">
-                      30/07/2015 - 12/2013
-                    </Text>
-                    <MaterialCommunityIcons
-                      name="information-outline"
-                      size={18}
-                      color="#4CB6A3"
-                    />
-                  </View>
-                  <View className="flex-row justify-between bg-[#F3F6F8] rounded-lg p-2">
-                    <View className="items-center flex-1">
-                      <Text className="text-xs text-gray-500">Dû</Text>
-                      <Text className="font-bold text-base text-[#23396C]">
-                        312,64 EUR
+                <Card key={i} className="w-75 bg-transparent rounded-2xl mb-4">
+                  {/* Card Outer Shadow */}
+                  <View className="rounded-2xl shadow-sm border border-[#E0E6ED]">
+                    {/* Card Header */}
+                    <View className="flex-row items-center justify-between bg-[#1ED9B6] rounded-t-2xl px-5 py-3">
+                      <Text className="text-[14px] text-white font-medium">
+                        30/07/2015 - 12/2013
                       </Text>
+                      <View className="bg-white rounded-full p-0.8">
+                        <MaterialCommunityIcons
+                          name="information-outline"
+                          size={18}
+                          color="#1ED9B6"
+                        />
+                      </View>
                     </View>
-                    <View className="items-center flex-1">
-                      <Text className="text-xs text-gray-500">Retenue</Text>
-                      <Text className="font-bold text-base text-[#23396C]">
-                        312,64 EUR
-                      </Text>
-                    </View>
-                    <View className="items-center flex-1">
-                      <Text className="text-xs text-gray-500">Reçu</Text>
-                      <Text className="font-bold text-base text-[#23396C]">
-                        0,00 EUR
-                      </Text>
+                    {/* Card Body Inner */}
+                    <View className="px-3 pb-3 pt-2">
+                      <View className="bg-white rounded-xl shadow-sm px-4 py-3 flex-row justify-between items-end gap-6">
+                        <View className="flex-1">
+                          <Text className="text-[12px] text-gray-600 font-medium mb-2">
+                            Dû
+                          </Text>
+                          <View className="flex-row items-end">
+                            <Text className="font-bold text-[14px] text-gray-900">
+                              312,64
+                            </Text>
+                            <Text className="text-[8px] text-gray-500 ml-1 mb-1">
+                              EUR
+                            </Text>
+                          </View>
+                        </View>
+                        <View className="flex-1">
+                          <Text className="text-[12px] text-gray-600 font-medium mb-2">
+                            Retenue
+                          </Text>
+                          <View className="flex-row items-end">
+                            <Text className="font-bold text-[14px] text-gray-900">
+                              312,64
+                            </Text>
+                            <Text className="text-[8px] text-gray-500 ml-1 mb-1">
+                              EUR
+                            </Text>
+                          </View>
+                        </View>
+                        <View className="flex-1">
+                          <Text className="text-[12px] text-gray-600 font-medium mb-2">
+                            Reçu
+                          </Text>
+                          <View className="flex-row items-end">
+                            <Text className="font-bold text-[14px] text-gray-900">
+                              0,00
+                            </Text>
+                            <Text className="text-[8px] text-gray-500 ml-1 mb-1">
+                              EUR
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
                     </View>
                   </View>
                 </Card>
@@ -64,38 +91,65 @@ export default function HomeScreen() {
           <View className="-mx-4 mt-2">
             <View className="flex-row space-x-3 overflow-x-scroll px-4 pb-2">
               {[2, 6, 7, 8].map((_, i) => (
-                <Card
-                  key={i}
-                  className="w-64 bg-white rounded-2xl shadow-sm p-3 mb-2 border border-[#E0E6ED]"
-                >
-                  <View className="flex-row items-center justify-between mb-2">
-                    <Text className="text-xs text-[#23396C] font-medium">
-                      30/07/2015 - 12/2013
-                    </Text>
-                    <MaterialCommunityIcons
-                      name="information-outline"
-                      size={18}
-                      color="#4CB6A3"
-                    />
-                  </View>
-                  <View className="flex-row justify-between bg-[#F3F6F8] rounded-lg p-2">
-                    <View className="items-center flex-1">
-                      <Text className="text-xs text-gray-500">Dû</Text>
-                      <Text className="font-bold text-base text-[#23396C]">
-                        312,64 EUR
+                <Card key={i} className="w-75 bg-transparent rounded-2xl mb-4">
+                  {/* Card Outer Shadow */}
+                  <View className="rounded-2xl shadow-sm border border-[#E0E6ED]">
+                    {/* Card Header */}
+                    <View className="flex-row items-center justify-between bg-[#1ED9B6] rounded-t-2xl px-5 py-3">
+                      <Text className="text-[14px] text-white font-medium">
+                        30/07/2015 - 12/2013
                       </Text>
+                      <View className="bg-white rounded-full p-0.8">
+                        <MaterialCommunityIcons
+                          name="information-outline"
+                          size={18}
+                          color="#1ED9B6"
+                        />
+                      </View>
                     </View>
-                    <View className="items-center flex-1">
-                      <Text className="text-xs text-gray-500">Retenue</Text>
-                      <Text className="font-bold text-base text-[#23396C]">
-                        312,64 EUR
-                      </Text>
-                    </View>
-                    <View className="items-center flex-1">
-                      <Text className="text-xs text-gray-500">Reçu</Text>
-                      <Text className="font-bold text-base text-[#23396C]">
-                        0,00 EUR
-                      </Text>
+                    {/* Card Body Inner */}
+                    <View className="px-3 pb-3 pt-2">
+                      <View className="bg-white rounded-xl shadow-sm px-4 py-3 flex-row justify-between items-end gap-6">
+                        <View className="flex-1">
+                          <Text className="text-[12px] text-gray-600 font-medium mb-2">
+                            Dû
+                          </Text>
+                          <View className="flex-row items-end">
+                            <Text className="font-bold text-[14px] text-gray-900">
+                              312,64
+                            </Text>
+                            <Text className="text-[8px] text-gray-500 ml-1 mb-1">
+                              EUR
+                            </Text>
+                          </View>
+                        </View>
+                        <View className="flex-1">
+                          <Text className="text-[12px] text-gray-600 font-medium mb-2">
+                            Retenue
+                          </Text>
+                          <View className="flex-row items-end">
+                            <Text className="font-bold text-[14px] text-gray-900">
+                              312,64
+                            </Text>
+                            <Text className="text-[8px] text-gray-500 ml-1 mb-1">
+                              EUR
+                            </Text>
+                          </View>
+                        </View>
+                        <View className="flex-1">
+                          <Text className="text-[12px] text-gray-600 font-medium mb-2">
+                            Reçu
+                          </Text>
+                          <View className="flex-row items-end">
+                            <Text className="font-bold text-[14px] text-gray-900">
+                              0,00
+                            </Text>
+                            <Text className="text-[8px] text-gray-500 ml-1 mb-1">
+                              EUR
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
                     </View>
                   </View>
                 </Card>
@@ -158,7 +212,7 @@ export default function HomeScreen() {
                 color="#fff"
               />
               <Text className="text-white font-medium mt-2 text-sm text-center">
-                Renvoi d'un formulaire
+                Renvoi d&apos;un formulaire
               </Text>
             </Card>
             <Card className="w-[48%] h-32 bg-[#23396C] rounded-xl items-center justify-center mb-2">
@@ -185,7 +239,9 @@ export default function HomeScreen() {
               color="#23396C"
               style={{ marginRight: 8 }}
             />
-            <Text className="text-sm text-[#23396C]">Madame Valérie SOUPART</Text>
+            <Text className="text-sm text-[#23396C]">
+              Madame Valérie SOUPART
+            </Text>
           </Card>
           <Card className="flex-row items-center bg-white rounded-xl p-3 mb-2">
             <MaterialCommunityIcons
