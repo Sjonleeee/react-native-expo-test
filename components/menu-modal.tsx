@@ -33,12 +33,21 @@ export function MenuModal({
   onClose,
   onOpenProfile,
   onOpenPayments,
+  onOpenAttestation,
 }: {
   visible: boolean;
   onClose: () => void;
   onOpenProfile: () => void;
   onOpenPayments: () => void;
+  onOpenAttestation: () => void;
 }) {
+  // Handler voor profiel-icoon in header
+  const handleProfileHeaderPress = () => {
+    onClose();
+    setTimeout(() => {
+      onOpenProfile();
+    }, 300);
+  };
   if (!visible) return null;
   return (
     <View className="absolute inset-0 bg-white z-50">
@@ -54,7 +63,7 @@ export function MenuModal({
           Menu
         </Text>
         <View className="items-center justify-center">
-          <TouchableOpacity onPress={onOpenProfile}>
+          <TouchableOpacity onPress={handleProfileHeaderPress}>
             <MaterialCommunityIcons
               name="account-circle-outline"
               size={28}
@@ -123,6 +132,7 @@ export function MenuModal({
           <MenuItem
             icon="file-document-outline"
             label="Attestation de paiement"
+            onPress={onOpenAttestation}
           />
           <MenuItem
             icon="file-document-outline"

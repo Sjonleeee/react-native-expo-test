@@ -1,3 +1,4 @@
+import { AttestationModal } from "@/components/attestation-modal";
 import { MenuModal } from "@/components/menu-modal";
 import { MovedModal } from "@/components/moved-modal";
 import { PaymentModal } from "@/components/payment-modal";
@@ -34,21 +35,19 @@ const OverlayModal = ({
   );
 };
 
-interface HeaderProps {
+export const Header: React.FC<{
   showBackButton?: boolean;
   onBack?: () => void;
   title?: string;
-  onOpenProfile?: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({
+}> = ({
   showBackButton = false,
   onBack,
   title,
-  onOpenProfile,
 }) => {
   const route = useRoute();
-  const [activeModal, setActiveModal] = useState<null | "menu" | "profile" | "payments">(null);
+  const [activeModal, setActiveModal] = useState<
+    null | "menu" | "profile" | "payments" | "attestation"
+  >(null);
   const [showMoved, setShowMoved] = useState(false);
   const isFocused = useIsFocused();
 
@@ -60,32 +59,34 @@ export const Header: React.FC<HeaderProps> = ({
   }, [isFocused]);
 
   const openMenu = useCallback(() => setActiveModal("menu"), []);
-  const openProfile = useCallback(() => {
-    if (onOpenProfile) onOpenProfile();
-    else setActiveModal("profile");
-  }, [onOpenProfile]);
+  const openProfile = useCallback(() => setActiveModal("profile"), []);
   const openPayments = useCallback(() => setActiveModal("payments"), []);
+  const openAttestation = useCallback(() => setActiveModal("attestation"), []);
   const closeModal = useCallback(() => setActiveModal(null), []);
   const openMoved = useCallback(() => setShowMoved(true), []);
   const closeMoved = useCallback(() => setShowMoved(false), []);
 
   return (
     <>
-      <View className="flex-row items-center justify-between px-4 py-4 bg-white border-b border-gray-200 z-10">
+      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 16, paddingVertical: 16, backgroundColor: "white", borderBottomWidth: 1, borderBottomColor: "#E5E7EB", zIndex: 10 }}>
         {showBackButton ? (
           <TouchableOpacity
             onPress={onBack}
-            className="items-center justify-center"
+            style={{ alignItems: "center", justifyContent: "center" }}
             accessible={true}
             accessibilityRole="button"
             accessibilityLabel="Back"
           >
-            <MaterialCommunityIcons name="arrow-left" size={28} color="#23396C" />
+            <MaterialCommunityIcons
+              name="arrow-left"
+              size={28}
+              color="#23396C"
+            />
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
             onPress={openMenu}
-            className="items-center justify-center"
+            style={{ alignItems: "center", justifyContent: "center" }}
             accessible={true}
             accessibilityRole="button"
             accessibilityLabel="Open menu"
@@ -93,10 +94,10 @@ export const Header: React.FC<HeaderProps> = ({
             <MaterialCommunityIcons name="menu" size={28} color="#23396C" />
           </TouchableOpacity>
         )}
-        <Text className="text-lg font-semibold text-[#23396C] text-center flex-1">
+        <Text style={{ fontSize: 18, fontWeight: "600", color: "#23396C", flex: 1, textAlign: "center" }}>
           {title || route.name}
         </Text>
-        <View className="items-center justify-center">
+        <View style={{ alignItems: "center", justifyContent: "center" }}>
           <TouchableOpacity
             onPress={openProfile}
             accessible={true}
@@ -117,6 +118,7 @@ export const Header: React.FC<HeaderProps> = ({
           onClose={closeModal}
           onOpenProfile={openProfile}
           onOpenPayments={openPayments}
+          onOpenAttestation={openAttestation}
         />
       </OverlayModal>
       <OverlayModal visible={activeModal === "profile"}>
@@ -127,7 +129,14 @@ export const Header: React.FC<HeaderProps> = ({
         />
       </OverlayModal>
       <OverlayModal visible={activeModal === "payments"}>
-        <PaymentModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+        <PaymentModal
+          visible={true}
+          onClose={closeModal}
+          onOpenProfile={openProfile}
+        />
+      </OverlayModal>
+      <OverlayModal visible={activeModal === "attestation"}>
+        <AttestationModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
       </OverlayModal>
       <OverlayModal visible={showMoved} zIndex={101}>
         <MovedModal visible={true} onClose={closeMoved} />

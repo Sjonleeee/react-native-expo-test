@@ -1,3 +1,4 @@
+import { AttestationModal } from "@/components/attestation-modal";
 import { PaymentModal } from "@/components/payment-modal";
 import { Header } from "@/components/ui/Header";
 import { Card } from "@/components/ui/card";
@@ -107,10 +108,15 @@ export function PaymentRow({ items }: { items: number[] }) {
 export default function HomeScreen() {
   const router = useRouter();
   const [showPayments, setShowPayments] = React.useState(false);
+  const [showAttestation, setShowAttestation] = React.useState(false);
+  const [showProfile, setShowProfile] = React.useState(false);
 
   return (
     <View className="flex-1 bg-[#F3F6F8]">
-      <Header onOpenPayments={() => setShowPayments(true)} />
+      <Header 
+        onOpenPayments={() => setShowPayments(true)}
+        onOpenAttestation={() => setShowAttestation(true)}
+      />
       <ScrollView>
         {/* Payments */}
         <View className="px-4 mt-4">
@@ -197,7 +203,12 @@ export default function HomeScreen() {
       <PaymentModal
         visible={showPayments}
         onClose={() => setShowPayments(false)}
-        onOpenProfile={() => router.push("/mes-donnees")}
+        onOpenProfile={() => setShowProfile(true)}
+      />
+      <AttestationModal
+        visible={showAttestation}
+        onClose={() => setShowAttestation(false)}
+        onOpenProfile={() => setShowProfile(true)}
       />
     </View>
   );
