@@ -1,7 +1,7 @@
 import { MenuModal } from "@/components/menu-modal";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useRoute } from "@react-navigation/native";
-import React, { useState } from "react";
+import { useIsFocused, useRoute } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
 interface HeaderProps {}
@@ -10,6 +10,11 @@ export const Header: React.FC<HeaderProps> = () => {
   const route = useRoute();
   const title = route.name;
   const [showMenu, setShowMenu] = useState(false);
+  const isFocused = useIsFocused();
+
+  useEffect(() => {
+    if (!isFocused) setShowMenu(false);
+  }, [isFocused]);
 
   return (
     <>
