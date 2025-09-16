@@ -1,19 +1,22 @@
 import { MenuModal } from "@/components/menu-modal";
+import { ProfileModal } from "@/components/profile-modal";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useIsFocused, useRoute } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
-interface HeaderProps {}
-
-export const Header: React.FC<HeaderProps> = () => {
+export const Header: React.FC = () => {
   const route = useRoute();
   const title = route.name;
   const [showMenu, setShowMenu] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    if (!isFocused) setShowMenu(false);
+    if (!isFocused) {
+      setShowMenu(false);
+      setShowProfile(false);
+    }
   }, [isFocused]);
 
   return (
@@ -29,11 +32,13 @@ export const Header: React.FC<HeaderProps> = () => {
           {title}
         </Text>
         <View className="items-center justify-center">
-          <MaterialCommunityIcons
-            name="account-circle-outline"
-            size={28}
-            color="#23396C"
-          />
+          <TouchableOpacity onPress={() => setShowProfile(true)}>
+            <MaterialCommunityIcons
+              name="account-circle-outline"
+              size={28}
+              color="#23396C"
+            />
+          </TouchableOpacity>
         </View>
       </View>
       {showMenu && (
@@ -49,6 +54,21 @@ export const Header: React.FC<HeaderProps> = () => {
           pointerEvents="box-none"
         >
           <MenuModal visible={showMenu} onClose={() => setShowMenu(false)} />
+        </View>
+      )}
+      {showProfile && (
+        <View
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 100,
+          }}
+          pointerEvents="box-none"
+        >
+          <ProfileModal visible={showProfile} onClose={() => setShowProfile(false)} />
         </View>
       )}
     </>
