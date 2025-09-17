@@ -49,10 +49,7 @@ export function MenuModal({
 }) {
   // Handler voor profiel-icoon in header
   const handleProfileHeaderPress = () => {
-    onClose();
-    setTimeout(() => {
-      onOpenProfile();
-    }, 300);
+    onOpenProfile(); // direct openen, niet eerst sluiten
   };
   if (!visible) return null;
   return (

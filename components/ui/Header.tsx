@@ -48,26 +48,38 @@ export const Header: React.FC<{
   title,
 }) => {
   const route = useRoute();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeModal, setActiveModal] = useState<
-    null | "menu" | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend" | "carteBancaire"
+    null | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend" | "carteBancaire"
   >(null);
   const [showMoved, setShowMoved] = useState(false);
   const isFocused = useIsFocused();
 
   useEffect(() => {
     if (!isFocused) {
+      setMenuOpen(false);
       setActiveModal(null);
       setShowMoved(false);
     }
   }, [isFocused]);
 
-  const openMenu = useCallback(() => setActiveModal("menu"), []);
+  const openMenu = useCallback(() => {
+    setMenuOpen(true);
+    setActiveModal(null);
+  }, []);
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    setActiveModal(null);
+  }, []);
+
+  // Open modal above menu
   const openProfile = useCallback(() => setActiveModal("profile"), []);
   const openPayments = useCallback(() => setActiveModal("payments"), []);
   const openAttestation = useCallback(() => setActiveModal("attestation"), []);
   const openPrimeNaissance = useCallback(() => setActiveModal("primeNaissance"), []);
   const openFormResend = useCallback(() => setActiveModal("formResend"), []);
   const openCarteBancaire = useCallback(() => setActiveModal("carteBancaire"), []);
+  // Close only modal, keep menu
   const closeModal = useCallback(() => setActiveModal(null), []);
   const openMoved = useCallback(() => setShowMoved(true), []);
   const closeMoved = useCallback(() => setShowMoved(false), []);
@@ -118,10 +130,11 @@ export const Header: React.FC<{
           </TouchableOpacity>
         </View>
       </View>
-      <OverlayModal visible={activeModal === "menu"}>
+      {/* Menu always visible if open or modal is open */}
+      <OverlayModal visible={menuOpen || !!activeModal} zIndex={100}>
         <MenuModal
           visible={true}
-          onClose={closeModal}
+          onClose={closeMenu}
           onOpenProfile={openProfile}
           onOpenPayments={openPayments}
           onOpenAttestation={openAttestation}
@@ -130,33 +143,28 @@ export const Header: React.FC<{
           onOpenCarteBancaire={openCarteBancaire}
         />
       </OverlayModal>
-      <OverlayModal visible={activeModal === "profile"}>
-        <ProfileModal
-          visible={true}
-          onClose={closeModal}
-          onOpenMoved={openMoved}
-        />
+      {/* Modals above menu */}
+      <OverlayModal visible={!!activeModal} zIndex={101}>
+        {activeModal === "profile" && (
+          <ProfileModal visible={true} onClose={closeModal} onOpenMoved={openMoved} />
+        )}
+        {activeModal === "payments" && (
+          <PaymentModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+        )}
+        {activeModal === "attestation" && (
+          <AttestationModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+        )}
+        {activeModal === "primeNaissance" && (
+          <PrimeNaissanceModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+        )}
+        {activeModal === "formResend" && (
+          <FormResendModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+        )}
+        {activeModal === "carteBancaire" && (
+          <CarteBancaireModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+        )}
       </OverlayModal>
-      <OverlayModal visible={activeModal === "payments"}>
-        <PaymentModal
-          visible={true}
-          onClose={closeModal}
-          onOpenProfile={openProfile}
-        />
-      </OverlayModal>
-      <OverlayModal visible={activeModal === "attestation"}>
-        <AttestationModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
-      </OverlayModal>
-      <OverlayModal visible={activeModal === "primeNaissance"}>
-        <PrimeNaissanceModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
-      </OverlayModal>
-      <OverlayModal visible={activeModal === "formResend"}>
-        <FormResendModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
-      </OverlayModal>
-      <OverlayModal visible={activeModal === "carteBancaire"}>
-        <CarteBancaireModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
-      </OverlayModal>
-      <OverlayModal visible={showMoved} zIndex={101}>
+      <OverlayModal visible={showMoved} zIndex={102}>
         <MovedModal visible={true} onClose={closeMoved} />
       </OverlayModal>
     </>
