@@ -1,3 +1,4 @@
+import { InfoCard } from "@/components/custom/info-card";
 import { RequestCard } from "@/components/custom/request-card";
 import { Header } from "@/components/ui/Header";
 import { Card } from "@/components/ui/card";
@@ -94,9 +95,7 @@ export default function HomeScreen() {
         {/* Payments */}
         <View className="px-4 mt-4">
           <View className="flex-row items-center justify-between mb-2">
-            <Text className="text-base font-semibold text-[#23396C]">
-              Derniers paiements
-            </Text>
+            <h3>Derniers paiements</h3>
             <TouchableOpacity
               onPress={() =>
                 window?.dispatchEvent(
@@ -116,17 +115,10 @@ export default function HomeScreen() {
         {/* Mon dossier */}
         <View className="px-4 mt-4">
           <h3>Mon dossier</h3>
-          <Card className="flex-row items-center bg-white rounded-xl p-3 mb-4">
-            <MaterialCommunityIcons
-              name="file-document-outline"
-              size={20}
-              color="#23396C"
-              style={{ marginRight: 8 }}
-            />
-            <Text className="text-sm text-[#23396C]">
-              Dossier 1 géré par Madame Valérie SOUPART
-            </Text>
-          </Card>
+          <InfoCard
+            icon="file-document-outline"
+            text="Dossier 1 géré par Madame Valérie SOUPART"
+          />
         </View>
         {/* Demandes */}
         <View className="px-4 mt-4">
