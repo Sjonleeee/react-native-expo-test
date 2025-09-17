@@ -15,9 +15,10 @@ export function InfoCard({
   return (
     <View
       className={cn(
-        "flex-row items-center bg-background rounded-xl p-3 mb-4 shadow-sm",
+        "flex-row items-center bg-background rounded-xl p-3 mb-4 border border-primary",
         className
       )}
+      style={{ borderWidth: 0.5 }}
       {...props}
     >
       <MaterialCommunityIcons

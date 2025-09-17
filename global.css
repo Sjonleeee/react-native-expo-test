@@ -51,7 +51,7 @@ h1 {
 }
 
 h3 {
-  @apply text-secondary font-semibold mb-2;
+  @apply text-mutedForeground font-semibold mb-2;
 }
 
 p {

@@ -160,12 +160,10 @@ export default function HomeScreen() {
         </View>
         {/* Gestionnaire de dossier */}
         <View className="px-4 mt-4">
-          <Text className="text-base font-semibold text-[#23396C] mb-2">
-            Gestionnaire de dossier
-          </Text>
-          <InfoRow icon="account-outline" text="Madame Valérie SOUPART" />
-          <InfoRow icon="phone-outline" text="+32 2 237 25 00" />
-          <InfoRow icon="email-outline" text="valerie.soupart@famifed.be" />
+          <h3>Gestionnaire de dossier</h3>
+          <InfoCard icon="account-outline" text="Madame Valérie SOUPART" />
+          <InfoCard icon="phone-outline" text="+32 2 237 25 00" />
+          <InfoCard icon="email-outline" text="valerie.soupart@famifed.be" />
         </View>
         {/* Footer */}
         <View className="items-center mt-2 mb-4">
