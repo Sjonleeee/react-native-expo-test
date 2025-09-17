@@ -38,6 +38,7 @@ export function MenuModal({
   onOpenFormResend,
   onOpenCarteBancaire,
   onOpenLangue,
+  onOpenAPropos,
 }: {
   visible: boolean;
   onClose: () => void;
@@ -48,6 +49,7 @@ export function MenuModal({
   onOpenFormResend: () => void;
   onOpenCarteBancaire: () => void;
   onOpenLangue: () => void;
+  onOpenAPropos: () => void;
 }) {
   // Handler voor profiel-icoon in header
   const handleProfileHeaderPress = () => {
@@ -171,7 +173,11 @@ export function MenuModal({
             label="Langue"
             onPress={onOpenLangue}
           />
-          <MenuItem icon="cog-outline" label="A propos de My Famiris" />
+          <MenuItem
+            icon="information-outline"
+            label="A propos"
+            onPress={onOpenAPropos}
+          />
         </View>
       </ScrollView>
     </View>

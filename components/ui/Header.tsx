@@ -7,6 +7,7 @@ import { MovedModal } from "@/components/moved-modal";
 import { PaymentModal } from "@/components/payment-modal";
 import { PrimeNaissanceModal } from "@/components/prime-naissance-modal";
 import { ProfileModal } from "@/components/profile-modal";
+import { AProposModal } from "@/components/a-propos-modal";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useIsFocused, useRoute } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
@@ -47,14 +48,7 @@ export const Header: React.FC<{
   const route = useRoute();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeModal, setActiveModal] = useState<
-    | null
-    | "profile"
-    | "payments"
-    | "attestation"
-    | "primeNaissance"
-    | "formResend"
-    | "carteBancaire"
-    | "langue"
+    null | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend" | "carteBancaire" | "langue" | "aPropos"
   >(null);
   const [showMoved, setShowMoved] = useState(false);
   const isFocused = useIsFocused();
@@ -90,6 +84,7 @@ export const Header: React.FC<{
     []
   );
   const openLangue = useCallback(() => setActiveModal("langue"), []);
+  const openAPropos = useCallback(() => setActiveModal("aPropos"), []);
   // Close only modal, keep menu
   const closeModal = useCallback(() => setActiveModal(null), []);
   const openMoved = useCallback(() => setShowMoved(true), []);
@@ -192,6 +187,7 @@ export const Header: React.FC<{
           onOpenFormResend={openFormResend}
           onOpenCarteBancaire={openCarteBancaire}
           onOpenLangue={openLangue}
+          onOpenAPropos={openAPropos}
         />
       </OverlayModal>
       {/* Modals above menu */}
@@ -240,6 +236,13 @@ export const Header: React.FC<{
         )}
         {activeModal === "langue" && (
           <LanguageModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
+        )}
+        {activeModal === "aPropos" && (
+          <AProposModal
             visible={true}
             onClose={closeModal}
             onOpenProfile={openProfile}
