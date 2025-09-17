@@ -1,7 +1,7 @@
 import { Header } from "@/components/ui/Header";
 import { Card } from "@/components/ui/card";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import React, { useEffect } from "react";
+import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 // Reusable card for Demandes section
@@ -103,17 +103,6 @@ export function PaymentRow({ items }: { items: number[] }) {
 }
 
 export default function HomeScreen() {
-  useEffect(() => {
-    const handler = () => {
-      const evt = new CustomEvent('open-payments-modal');
-      window?.dispatchEvent(evt);
-    };
-    window.openPaymentsModal = handler;
-    return () => {
-      delete window.openPaymentsModal;
-    };
-  }, []);
-
   return (
     <View className="flex-1 bg-[#F3F6F8]">
       <Header />
@@ -124,7 +113,15 @@ export default function HomeScreen() {
             <Text className="text-base font-semibold text-[#23396C]">
               Derniers paiements
             </Text>
-            <TouchableOpacity onPress={() => window?.dispatchEvent(new CustomEvent('open-payments-modal', { detail: { onlyModal: true } }))}>
+            <TouchableOpacity
+              onPress={() =>
+                window?.dispatchEvent(
+                  new CustomEvent("open-payments-modal", {
+                    detail: { onlyModal: true },
+                  })
+                )
+              }
+            >
               <Text className="text-sm text-blue-500 font-medium">
                 voir tout
               </Text>

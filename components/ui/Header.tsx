@@ -1,13 +1,14 @@
+import { AProposModal } from "@/components/a-propos-modal";
 import { AttestationModal } from "@/components/attestation-modal";
 import { CarteBancaireModal } from "@/components/carte-bancaire-modal";
 import { FormResendModal } from "@/components/form-resend-modal";
+import { GestionnaireModal } from "@/components/gestionnaire-modal";
 import { LanguageModal } from "@/components/language-modal";
 import { MenuModal } from "@/components/menu-modal";
 import { MovedModal } from "@/components/moved-modal";
 import { PaymentModal } from "@/components/payment-modal";
 import { PrimeNaissanceModal } from "@/components/prime-naissance-modal";
 import { ProfileModal } from "@/components/profile-modal";
-import { AProposModal } from "@/components/a-propos-modal";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useIsFocused, useRoute } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
@@ -48,7 +49,7 @@ export const Header: React.FC<{
   const route = useRoute();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeModal, setActiveModal] = useState<
-    null | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend" | "carteBancaire" | "langue" | "aPropos"
+    null | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend" | "carteBancaire" | "langue" | "aPropos" | "gestionnaire"
   >(null);
   const [showMoved, setShowMoved] = useState(false);
   const isFocused = useIsFocused();
@@ -85,6 +86,7 @@ export const Header: React.FC<{
   );
   const openLangue = useCallback(() => setActiveModal("langue"), []);
   const openAPropos = useCallback(() => setActiveModal("aPropos"), []);
+  const openGestionnaire = useCallback(() => setActiveModal("gestionnaire"), []);
   // Close only modal, keep menu
   const closeModal = useCallback(() => setActiveModal(null), []);
   const openMoved = useCallback(() => setShowMoved(true), []);
@@ -188,6 +190,7 @@ export const Header: React.FC<{
           onOpenCarteBancaire={openCarteBancaire}
           onOpenLangue={openLangue}
           onOpenAPropos={openAPropos}
+          onOpenGestionnaire={openGestionnaire}
         />
       </OverlayModal>
       {/* Modals above menu */}
@@ -243,6 +246,13 @@ export const Header: React.FC<{
         )}
         {activeModal === "aPropos" && (
           <AProposModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
+        )}
+        {activeModal === "gestionnaire" && (
+          <GestionnaireModal
             visible={true}
             onClose={closeModal}
             onOpenProfile={openProfile}

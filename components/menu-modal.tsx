@@ -39,6 +39,7 @@ export function MenuModal({
   onOpenCarteBancaire,
   onOpenLangue,
   onOpenAPropos,
+  onOpenGestionnaire,
 }: {
   visible: boolean;
   onClose: () => void;
@@ -50,6 +51,7 @@ export function MenuModal({
   onOpenCarteBancaire: () => void;
   onOpenLangue: () => void;
   onOpenAPropos: () => void;
+  onOpenGestionnaire: () => void;
 }) {
   // Handler voor profiel-icoon in header
   const handleProfileHeaderPress = () => {
@@ -102,7 +104,11 @@ export function MenuModal({
             label="Mes données"
             onPress={onOpenProfile}
           />
-          <MenuItem icon="account-outline" label="Gestionnaire de dossier" />
+          <MenuItem
+            icon="account-outline"
+            label="Gestionnaire de dossier"
+            onPress={onOpenGestionnaire}
+          />
         </View>
         {/* Mes paiements */}
         <View className="mb-6">

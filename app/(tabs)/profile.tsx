@@ -48,7 +48,6 @@ export default function ProfilePage() {
             />
           ))}
         </View>
-
         {/* Buttons Section */}
         <Button className="w-full flex-row items-center justify-center rounded-full bg-[#23396C] py-4 mb-4">
           <MaterialCommunityIcons
