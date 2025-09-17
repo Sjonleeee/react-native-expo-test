@@ -1,6 +1,7 @@
 import { AttestationModal } from "@/components/attestation-modal";
 import { CarteBancaireModal } from "@/components/carte-bancaire-modal";
 import { FormResendModal } from "@/components/form-resend-modal";
+import { LanguageModal } from "@/components/language-modal";
 import { MenuModal } from "@/components/menu-modal";
 import { MovedModal } from "@/components/moved-modal";
 import { PaymentModal } from "@/components/payment-modal";
@@ -42,15 +43,18 @@ export const Header: React.FC<{
   showBackButton?: boolean;
   onBack?: () => void;
   title?: string;
-}> = ({
-  showBackButton = false,
-  onBack,
-  title,
-}) => {
+}> = ({ showBackButton = false, onBack, title }) => {
   const route = useRoute();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeModal, setActiveModal] = useState<
-    null | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend" | "carteBancaire"
+    | null
+    | "profile"
+    | "payments"
+    | "attestation"
+    | "primeNaissance"
+    | "formResend"
+    | "carteBancaire"
+    | "langue"
   >(null);
   const [showMoved, setShowMoved] = useState(false);
   const isFocused = useIsFocused();
@@ -76,9 +80,16 @@ export const Header: React.FC<{
   const openProfile = useCallback(() => setActiveModal("profile"), []);
   const openPayments = useCallback(() => setActiveModal("payments"), []);
   const openAttestation = useCallback(() => setActiveModal("attestation"), []);
-  const openPrimeNaissance = useCallback(() => setActiveModal("primeNaissance"), []);
+  const openPrimeNaissance = useCallback(
+    () => setActiveModal("primeNaissance"),
+    []
+  );
   const openFormResend = useCallback(() => setActiveModal("formResend"), []);
-  const openCarteBancaire = useCallback(() => setActiveModal("carteBancaire"), []);
+  const openCarteBancaire = useCallback(
+    () => setActiveModal("carteBancaire"),
+    []
+  );
+  const openLangue = useCallback(() => setActiveModal("langue"), []);
   // Close only modal, keep menu
   const closeModal = useCallback(() => setActiveModal(null), []);
   const openMoved = useCallback(() => setShowMoved(true), []);
@@ -94,15 +105,30 @@ export const Header: React.FC<{
         setActiveModal("payments");
       }
     }
-    window?.addEventListener('open-payments-modal', handleOpenPaymentsModal);
+    window?.addEventListener("open-payments-modal", handleOpenPaymentsModal);
     return () => {
-      window?.removeEventListener('open-payments-modal', handleOpenPaymentsModal);
+      window?.removeEventListener(
+        "open-payments-modal",
+        handleOpenPaymentsModal
+      );
     };
   }, []);
 
   return (
     <>
-      <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 16, paddingVertical: 16, backgroundColor: "white", borderBottomWidth: 1, borderBottomColor: "#E5E7EB", zIndex: 10 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingHorizontal: 16,
+          paddingVertical: 16,
+          backgroundColor: "white",
+          borderBottomWidth: 1,
+          borderBottomColor: "#E5E7EB",
+          zIndex: 10,
+        }}
+      >
         {showBackButton ? (
           <TouchableOpacity
             onPress={onBack}
@@ -128,7 +154,15 @@ export const Header: React.FC<{
             <MaterialCommunityIcons name="menu" size={28} color="#23396C" />
           </TouchableOpacity>
         )}
-        <Text style={{ fontSize: 18, fontWeight: "600", color: "#23396C", flex: 1, textAlign: "center" }}>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: "600",
+            color: "#23396C",
+            flex: 1,
+            textAlign: "center",
+          }}
+        >
           {title || route.name}
         </Text>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -157,27 +191,59 @@ export const Header: React.FC<{
           onOpenPrimeNaissance={openPrimeNaissance}
           onOpenFormResend={openFormResend}
           onOpenCarteBancaire={openCarteBancaire}
+          onOpenLangue={openLangue}
         />
       </OverlayModal>
       {/* Modals above menu */}
       <OverlayModal visible={!!activeModal} zIndex={101}>
         {activeModal === "profile" && (
-          <ProfileModal visible={true} onClose={closeModal} onOpenMoved={openMoved} />
+          <ProfileModal
+            visible={true}
+            onClose={closeModal}
+            onOpenMoved={openMoved}
+          />
         )}
         {activeModal === "payments" && (
-          <PaymentModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+          <PaymentModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
         )}
         {activeModal === "attestation" && (
-          <AttestationModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+          <AttestationModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
         )}
         {activeModal === "primeNaissance" && (
-          <PrimeNaissanceModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+          <PrimeNaissanceModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
         )}
         {activeModal === "formResend" && (
-          <FormResendModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+          <FormResendModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
         )}
         {activeModal === "carteBancaire" && (
-          <CarteBancaireModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+          <CarteBancaireModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
+        )}
+        {activeModal === "langue" && (
+          <LanguageModal
+            visible={true}
+            onClose={closeModal}
+            onOpenProfile={openProfile}
+          />
         )}
       </OverlayModal>
       <OverlayModal visible={showMoved} zIndex={102}>
