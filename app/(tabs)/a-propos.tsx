@@ -8,8 +8,8 @@ export default function AProposScreen() {
       <View className="flex-1">
         <ScrollView className="flex-1 px-6 pt-8">
           {[1, 2, 3].map((i) => (
-            <View key={i} className="mb-8">
-              <Text className="text-xl font-bold text-title mb-3">
+            <View key={i} className="mb-8 flex flex-col">
+              <Text>
                 <h1>Accès et sécurité</h1>
               </Text>
               <Text>

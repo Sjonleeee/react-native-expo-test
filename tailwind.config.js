@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: "var(--background)",
         foreground: "var(--foreground)",
         primary: "var(--primary)",
         card: "var(--card)",
@@ -26,6 +27,7 @@ module.exports = {
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
+        
         // dark: {
         //   background: "var(--background)",
         //   title: "var(--title)",

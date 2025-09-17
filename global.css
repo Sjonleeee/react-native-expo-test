@@ -5,15 +5,15 @@
 :root {
   --radius: 0.625rem;
   --background: #ffffff;
-  --foreground: #17f486;
-  --card: #ffffff;
+  --foreground: #252525;
+  --card: #cf0000;
   --card-foreground: #252525;
   --popover: #ffffff;
   --popover-foreground: #252525;
   --primary: #3451b2;
   --primary-foreground: #fafafa;
-  --secondary: #f5f5fa;
-  --secondary-foreground: #3451b2;
+  --secondary: #171773;
+  --secondary-foreground: #e5e5e6;
   --muted: #f5f5fa;
   --muted-foreground: #8e8e8e;
   --accent: #f5f5fa;
@@ -24,7 +24,7 @@
   --ring: #b5b5b5;
 }
 
-/* .dark:root {
+.dark:root {
   --background: #252525;
   --title: #1e3a8a;
   --foreground: #fafafa;
@@ -44,12 +44,16 @@
   --border: #ffffff1a;
   --input: #ffffff26;
   --ring: #8e8e8e;
-} */
+}
 
 h1 {
-  @apply text-foreground text-3xl font-bold mb-4;
+  @apply text-primary text-2xl font-bold mb-4;
+}
+
+h3 {
+  @apply text-secondary font-semibold mb-2;
 }
 
 p {
-  @apply text-base text-gray-800 leading-6;
+  @apply text-sm text-gray-800 leading-6;
 }
