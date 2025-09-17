@@ -73,15 +73,11 @@ export const GestionnaireModal: React.FC<{
           }}
         >
           <Avatar
-            label="VS"
-            size={120}
-            style={{
-              marginBottom: 24,
-              backgroundColor: "#1ED9B6",
-              alignSelf: "center",
-            }}
-            labelStyle={{ fontSize: 44, fontWeight: "bold", color: "#fff" }}
-          />
+            alt="Avatar VS"
+            className="mb-6 bg-[#1ED9B6] self-center w-24 h-24"
+          >
+            <Text className="text-4xl font-bold text-white">VS</Text>
+          </Avatar>
           <Text
             style={{
               fontSize: 24,

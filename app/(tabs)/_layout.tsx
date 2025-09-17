@@ -3,12 +3,8 @@ import { Tabs } from "expo-router";
 import React from "react";
 
 import { HapticTab } from "@/components/haptic-tab";
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
@@ -23,12 +19,12 @@ export default function TabLayout() {
           height: 70,
         },
         tabBarLabelStyle: {
-          fontSize: 15,
+          fontSize: 13, // smaller label
           fontWeight: "600",
           marginBottom: 2,
         },
         tabBarIconStyle: {
-          marginTop: 4,
+          marginTop: 2, // slightly less spacing
         },
         headerShown: false,
         tabBarButton: HapticTab,
@@ -41,7 +37,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="view-grid-outline"
-              size={24}
+              size={20} // smaller icon
               color={color}
             />
           ),
@@ -54,7 +50,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="message-outline"
-              size={22}
+              size={18} // smaller icon
               color={color}
             />
           ),
@@ -67,7 +63,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="cloud-outline"
-              size={24}
+              size={20} // smaller icon
               color={color}
             />
           ),
