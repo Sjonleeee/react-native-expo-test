@@ -1,8 +1,14 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+    Modal,
+    ScrollView,
+    Text,
+    TouchableOpacity,
+    View,
+} from "react-native";
 
-export function PrimeNaissanceModal({
+export function CarteBancaireModal({
   visible,
   onClose,
   onOpenProfile,
@@ -61,7 +67,7 @@ export function PrimeNaissanceModal({
                 textAlign: "center",
               }}
             >
-              Prime de naissance anticipée
+              Mon numéro de carte bancaire
             </Text>
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <TouchableOpacity onPress={onOpenProfile}>
@@ -74,70 +80,38 @@ export function PrimeNaissanceModal({
             </View>
           </View>
           <ScrollView contentContainerStyle={{ padding: 24 }}>
-            <Text style={{ color: "#23396C", fontSize: 16, marginBottom: 24 }}>
-              Pour une prime de naissance anticipée, il suffit de nous envoyer
-              l’attestation de votre médecin ou sage-femme. Veuillez prendre une
-              photo de ce document
-            </Text>
-            <Text
-              style={{
-                color: "#23396C",
-                fontWeight: "bold",
-                fontSize: 16,
-                marginBottom: 8,
-              }}
-            >
-              Document
-            </Text>
             <View
               style={{
-                flexDirection: "row",
-                alignItems: "center",
-                borderWidth: 1,
-                borderColor: "#23396C",
-                borderRadius: 9999,
-                paddingHorizontal: 16,
-                paddingVertical: 12,
-                marginBottom: 24,
+                backgroundColor: "#2DE1B2",
+                borderRadius: 20,
+                padding: 18,
+                marginBottom: 32,
               }}
             >
-              <MaterialCommunityIcons
-                name="cloud-upload-outline"
-                size={22}
-                color="#23396C"
-              />
-              <Text
-                style={{
-                  marginLeft: 8,
-                  color: "#23396C",
-                  fontSize: 16,
-                  opacity: 0.3,
-                }}
-              >
-                Attestation médicale (photo ou PDF)
+              <Text style={{ color: "white", fontSize: 16, lineHeight: 24 }}>
+                Pour des raisons de sécurité, cette fonctionnalité est uniquement accessible via une connexion CSAM (carte d’identité électronique eID, token, itsme, code de sécurité via une application mobile).
               </Text>
             </View>
-            <TouchableOpacity
-              style={{
-                backgroundColor: "#23396C",
-                borderRadius: 9999,
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                paddingVertical: 16,
-                marginTop: 8,
-              }}
-            >
-              <MaterialCommunityIcons
-                name="camera-outline"
-                size={22}
-                color="#fff"
-                style={{ marginRight: 8 }}
-              />
-              <Text style={{ color: "#fff", fontWeight: "600", fontSize: 16 }}>
-                Prendre une photo
-              </Text>
-            </TouchableOpacity>
+            <Text style={{ color: "#23396C", fontWeight: "bold", fontSize: 18, marginBottom: 16 }}>
+              Dossier 123626
+            </Text>
+            <View style={{ borderTopWidth: 1, borderTopColor: '#E5E7EB' }} />
+            <View style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 16 }}>
+              <Text style={{ flex: 1, color: '#23396C', fontSize: 16 }}>Types de paiement</Text>
+              <Text style={{ flex: 1, color: '#23396C', fontSize: 16 }}>Virement bancaire</Text>
+              <TouchableOpacity>
+                <MaterialCommunityIcons name="pencil-outline" size={22} color="#23396C" />
+              </TouchableOpacity>
+            </View>
+            <View style={{ borderTopWidth: 1, borderTopColor: '#E5E7EB' }} />
+            <View style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 16 }}>
+              <Text style={{ flex: 1, color: '#23396C', fontSize: 16 }}>IBAN</Text>
+              <Text style={{ flex: 1, color: '#23396C', fontSize: 16 }}>BE36 6322 6236 3626</Text>
+              <TouchableOpacity>
+                <MaterialCommunityIcons name="pencil-outline" size={22} color="#23396C" />
+              </TouchableOpacity>
+            </View>
+            <View style={{ borderTopWidth: 1, borderTopColor: '#E5E7EB' }} />
           </ScrollView>
         </View>
       </View>

@@ -36,6 +36,7 @@ export function MenuModal({
   onOpenAttestation,
   onOpenPrimeNaissance,
   onOpenFormResend,
+  onOpenCarteBancaire,
 }: {
   visible: boolean;
   onClose: () => void;
@@ -44,6 +45,7 @@ export function MenuModal({
   onOpenAttestation: () => void;
   onOpenPrimeNaissance: () => void;
   onOpenFormResend: () => void;
+  onOpenCarteBancaire: () => void;
 }) {
   // Handler voor profiel-icoon in header
   const handleProfileHeaderPress = () => {
@@ -151,6 +153,7 @@ export function MenuModal({
           <MenuItem
             icon="bank-transfer"
             label="Demande de changement de carte bancaire"
+            onPress={onOpenCarteBancaire}
           />
         </View>
         {/* Réglages */}

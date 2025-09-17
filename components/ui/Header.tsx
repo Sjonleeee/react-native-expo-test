@@ -1,4 +1,5 @@
 import { AttestationModal } from "@/components/attestation-modal";
+import { CarteBancaireModal } from "@/components/carte-bancaire-modal";
 import { FormResendModal } from "@/components/form-resend-modal";
 import { MenuModal } from "@/components/menu-modal";
 import { MovedModal } from "@/components/moved-modal";
@@ -48,7 +49,7 @@ export const Header: React.FC<{
 }) => {
   const route = useRoute();
   const [activeModal, setActiveModal] = useState<
-    null | "menu" | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend"
+    null | "menu" | "profile" | "payments" | "attestation" | "primeNaissance" | "formResend" | "carteBancaire"
   >(null);
   const [showMoved, setShowMoved] = useState(false);
   const isFocused = useIsFocused();
@@ -66,6 +67,7 @@ export const Header: React.FC<{
   const openAttestation = useCallback(() => setActiveModal("attestation"), []);
   const openPrimeNaissance = useCallback(() => setActiveModal("primeNaissance"), []);
   const openFormResend = useCallback(() => setActiveModal("formResend"), []);
+  const openCarteBancaire = useCallback(() => setActiveModal("carteBancaire"), []);
   const closeModal = useCallback(() => setActiveModal(null), []);
   const openMoved = useCallback(() => setShowMoved(true), []);
   const closeMoved = useCallback(() => setShowMoved(false), []);
@@ -125,6 +127,7 @@ export const Header: React.FC<{
           onOpenAttestation={openAttestation}
           onOpenPrimeNaissance={openPrimeNaissance}
           onOpenFormResend={openFormResend}
+          onOpenCarteBancaire={openCarteBancaire}
         />
       </OverlayModal>
       <OverlayModal visible={activeModal === "profile"}>
@@ -149,6 +152,9 @@ export const Header: React.FC<{
       </OverlayModal>
       <OverlayModal visible={activeModal === "formResend"}>
         <FormResendModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
+      </OverlayModal>
+      <OverlayModal visible={activeModal === "carteBancaire"}>
+        <CarteBancaireModal visible={true} onClose={closeModal} onOpenProfile={openProfile} />
       </OverlayModal>
       <OverlayModal visible={showMoved} zIndex={101}>
         <MovedModal visible={true} onClose={closeMoved} />
