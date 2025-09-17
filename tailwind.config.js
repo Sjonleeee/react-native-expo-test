@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // NOTE: Update this to include the paths to all files that contain Nativewind classes.
   content: [
     "./App.tsx",
     "./components/**/*.{js,jsx,ts,tsx}",
@@ -8,7 +7,48 @@ module.exports = {
   ],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        card: "var(--card)",
+        cardForeground: "var(--card-foreground)",
+        popover: "var(--popover)",
+        popoverForeground: "var(--popover-foreground)",
+        primaryForeground: "var(--primary-foreground)",
+        secondary: "var(--secondary)",
+        secondaryForeground: "var(--secondary-foreground)",
+        muted: "var(--muted)",
+        mutedForeground: "var(--muted-foreground)",
+        accent: "var(--accent)",
+        accentForeground: "var(--accent-foreground)",
+        destructive: "var(--destructive)",
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        // dark: {
+        //   background: "var(--background)",
+        //   title: "var(--title)",
+        //   foreground: "var(--foreground)",
+        //   card: "var(--card)",
+        //   cardForeground: "var(--card-foreground)",
+        //   popover: "var(--popover)",
+        //   popoverForeground: "var(--popover-foreground)",
+        //   primary: "var(--primary)",
+        //   primaryForeground: "var(--primary-foreground)",
+        //   secondary: "var(--secondary)",
+        //   secondaryForeground: "var(--secondary-foreground)",
+        //   muted: "var(--muted)",
+        //   mutedForeground: "var(--muted-foreground)",
+        //   accent: "var(--accent)",
+        //   accentForeground: "var(--accent-foreground)",
+        //   destructive: "var(--destructive)",
+        //   border: "var(--border)",
+        //   input: "var(--input)",
+        //   ring: "var(--ring)",
+        // },
+      },
+    },
   },
   plugins: [],
 };
