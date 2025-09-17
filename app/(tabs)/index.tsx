@@ -1,10 +1,7 @@
-import { AttestationModal } from "@/components/attestation-modal";
-import { PaymentModal } from "@/components/payment-modal";
 import { Header } from "@/components/ui/Header";
 import { Card } from "@/components/ui/card";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 // Reusable card for Demandes section
@@ -106,17 +103,20 @@ export function PaymentRow({ items }: { items: number[] }) {
 }
 
 export default function HomeScreen() {
-  const router = useRouter();
-  const [showPayments, setShowPayments] = React.useState(false);
-  const [showAttestation, setShowAttestation] = React.useState(false);
-  const [showProfile, setShowProfile] = React.useState(false);
+  useEffect(() => {
+    const handler = () => {
+      const evt = new CustomEvent('open-payments-modal');
+      window?.dispatchEvent(evt);
+    };
+    window.openPaymentsModal = handler;
+    return () => {
+      delete window.openPaymentsModal;
+    };
+  }, []);
 
   return (
     <View className="flex-1 bg-[#F3F6F8]">
-      <Header 
-        onOpenPayments={() => setShowPayments(true)}
-        onOpenAttestation={() => setShowAttestation(true)}
-      />
+      <Header />
       <ScrollView>
         {/* Payments */}
         <View className="px-4 mt-4">
@@ -124,7 +124,7 @@ export default function HomeScreen() {
             <Text className="text-base font-semibold text-[#23396C]">
               Derniers paiements
             </Text>
-            <TouchableOpacity onPress={() => router.push("/paiements")}>
+            <TouchableOpacity onPress={() => window?.dispatchEvent(new CustomEvent('open-payments-modal', { detail: { onlyModal: true } }))}>
               <Text className="text-sm text-blue-500 font-medium">
                 voir tout
               </Text>
@@ -200,16 +200,6 @@ export default function HomeScreen() {
         </View>
         {/* Bottom Navigation */}
       </ScrollView>
-      <PaymentModal
-        visible={showPayments}
-        onClose={() => setShowPayments(false)}
-        onOpenProfile={() => setShowProfile(true)}
-      />
-      <AttestationModal
-        visible={showAttestation}
-        onClose={() => setShowAttestation(false)}
-        onOpenProfile={() => setShowProfile(true)}
-      />
     </View>
   );
 }

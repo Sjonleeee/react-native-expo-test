@@ -84,6 +84,22 @@ export const Header: React.FC<{
   const openMoved = useCallback(() => setShowMoved(true), []);
   const closeMoved = useCallback(() => setShowMoved(false), []);
 
+  useEffect(() => {
+    function handleOpenPaymentsModal(e: any) {
+      if (e?.detail?.onlyModal) {
+        setMenuOpen(false);
+        setActiveModal("payments");
+      } else {
+        setMenuOpen(true);
+        setActiveModal("payments");
+      }
+    }
+    window?.addEventListener('open-payments-modal', handleOpenPaymentsModal);
+    return () => {
+      window?.removeEventListener('open-payments-modal', handleOpenPaymentsModal);
+    };
+  }, []);
+
   return (
     <>
       <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 16, paddingVertical: 16, backgroundColor: "white", borderBottomWidth: 1, borderBottomColor: "#E5E7EB", zIndex: 10 }}>
@@ -130,8 +146,8 @@ export const Header: React.FC<{
           </TouchableOpacity>
         </View>
       </View>
-      {/* Menu always visible if open or modal is open */}
-      <OverlayModal visible={menuOpen || !!activeModal} zIndex={100}>
+      {/* Menu only visible if menuOpen is true, or a modal is open and menu should be shown */}
+      <OverlayModal visible={menuOpen} zIndex={100}>
         <MenuModal
           visible={true}
           onClose={closeMenu}
