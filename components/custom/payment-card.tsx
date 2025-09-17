@@ -26,16 +26,14 @@ export function PaymentCard({
   return (
     <View
       className={cn(
-        "w-full flex flex-col bg-background rounded-2xl mb-4 border border-primary shadow-sm",
+        "w-full flex flex-col bg-background rounded-2xl border border-primary ",
         className
       )}
       style={{ borderWidth: 0.5 }}
       {...props}
     >
       <View className="flex-row items-center justify-between bg-accent rounded-t-2xl px-5 py-3">
-        <Text className="text-xs text-accent-foreground font-medium">
-          {date}
-        </Text>
+        <Text className="text-xs text-background font-medium">{date}</Text>
         {infoIcon && (
           <View className="bg-background rounded-full p-0.8">
             <MaterialCommunityIcons

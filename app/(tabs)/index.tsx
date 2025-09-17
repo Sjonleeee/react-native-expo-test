@@ -12,8 +12,8 @@ export default function HomeScreen() {
       <Header />
       <ScrollView>
         {/* Payments */}
-        <View className="px-4 mt-4">
-          <View className="flex-row items-center justify-between">
+        <View className="px-4 mt-6">
+          <View className="flex-row items-center justify-between mb-2">
             <h3>Derniers paiements</h3>
             <TouchableOpacity
               onPress={() =>
@@ -24,7 +24,9 @@ export default function HomeScreen() {
                 )
               }
             >
-              <Text className="text-sm text-primary">voir tout</Text>
+              <Text className="text-sm text-primary underline font-medium">
+                voir tout
+              </Text>
             </TouchableOpacity>
           </View>
           <PaymentCard
@@ -35,8 +37,10 @@ export default function HomeScreen() {
           />
         </View>
         {/* Mon dossier */}
-        <View className="px-4 mt-4">
-          <h3>Mon dossier</h3>
+        <View className="px-4 mt-6">
+          <h3>
+            Mon dossier
+          </h3>
           <InfoCard
             icon="file-document-outline"
             text="Dossier 1 géré par Madame Valérie SOUPART"
@@ -69,7 +73,7 @@ export default function HomeScreen() {
                 size={48}
                 color="#fff"
               />
-              Renvoi d'un formulaire
+              Renvoi d un formulaire
             </RequestCard>
             <RequestCard>
               <MaterialCommunityIcons
