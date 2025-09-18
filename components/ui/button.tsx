@@ -94,7 +94,7 @@ type ButtonProps = React.ComponentProps<typeof Pressable> &
 
 function Button({ className, variant, size, ...props }: ButtonProps) {
   return (
-    <TextClassContext.Provider value={buttonTextVariants({ variant, size })}>
+    <TextClassContext.Provider value={buttonTextVariants({ variant, size }) + ' text-white'}>
       <Pressable
         className={cn(props.disabled && 'opacity-50', buttonVariants({ variant, size }), className)}
         role="button"
@@ -106,3 +106,4 @@ function Button({ className, variant, size, ...props }: ButtonProps) {
 
 export { Button, buttonTextVariants, buttonVariants };
 export type { ButtonProps };
+

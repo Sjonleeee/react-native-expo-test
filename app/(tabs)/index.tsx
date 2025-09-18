@@ -1,7 +1,7 @@
 import { InfoCard } from "@/components/custom/info-card";
 import { PaymentCard } from "@/components/custom/payment-card";
 import { RequestCard } from "@/components/custom/request-card";
-import { Header } from "@/components/ui/Header";
+import { AppHeader } from "@/components/ui/AppHeader";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
@@ -9,7 +9,7 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 export default function HomeScreen() {
   return (
     <View className="flex-1 bg-background">
-      <Header />
+      <AppHeader title="Aperçu" />
       <ScrollView>
         {/* Payments */}
         <View className="px-4 mt-6">
@@ -38,9 +38,7 @@ export default function HomeScreen() {
         </View>
         {/* Mon dossier */}
         <View className="px-4 mt-6">
-          <h3>
-            Mon dossier
-          </h3>
+          <h3>Mon dossier</h3>
           <InfoCard
             icon="file-document-outline"
             text="Dossier 1 géré par Madame Valérie SOUPART"

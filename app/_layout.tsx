@@ -8,6 +8,7 @@ import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 import "../global.css";
 
+import { AppHeader } from "@/components/ui/AppHeader";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import React, { useState } from "react";
 import AuthScreen from "./auth";
@@ -29,8 +30,69 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
-          name="modal"
-          options={{ presentation: "modal", title: "Modal" }}
+          name="menu"
+          options={{
+            header: () => <AppHeader title="Menu" showBackButton />,
+          }}
+        />
+        <Stack.Screen name="mes-donnees" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="gestionnaire-de-dossier"
+          options={{
+            header: () => (
+              <AppHeader title="Gestionnaire de dossier" showBackButton />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="derniers-paiements"
+          options={{
+            header: () => <AppHeader title="Derniers paiements" showBackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="attestation-de-paiement"
+          options={{
+            header: () => (
+              <AppHeader title="Attestation de paiement" showBackButton />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="prime-de-naissance-anticipee"
+          options={{
+            header: () => (
+              <AppHeader title="Prime de naissance anticipée" showBackButton />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="renvoi-formulaire"
+          options={{
+            header: () => <AppHeader title="Renvoi d’un formulaire" showBackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="demande-changement-carte-bancaire"
+          options={{
+            header: () => (
+              <AppHeader title="Demande de changement de carte bancaire" showBackButton />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="langue"
+          options={{
+            header: () => <AppHeader title="Langue" showBackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="a-propos"
+          options={{
+            header: () => (
+              <AppHeader title="A propos de My Famiris" showBackButton />
+            ),
+          }}
         />
       </Stack>
       <StatusBar style="auto" />

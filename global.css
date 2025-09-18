@@ -10,13 +10,13 @@
   --card-foreground: #252525;
   --popover: #ffffff;
   --popover-foreground: #252525;
-  --primary: #23396C;
+  --primary: #23396c;
   --primary-foreground: #e3e3e3;
   --secondary: #3451b2;
   --secondary-foreground: #fff;
   --muted: #8e8e8e;
-  --muted-foreground: #23396C;
-  --accent: #1ED9B6;
+  --muted-foreground: #23396c;
+  --accent: #1ed9b6;
   --accent-foreground: #fff;
   --destructive: #e34c26;
   --border: #ebebeb;
@@ -32,13 +32,13 @@
   --card-foreground: #fafafa;
   --popover: #444444;
   --popover-foreground: #fafafa;
-  --primary: #23396C;
+  --primary: #23396c;
   --primary-foreground: #fff;
   --secondary: #3451b2;
   --secondary-foreground: #fff;
   --muted: #b5b5b5;
-  --muted-foreground: #23396C;
-  --accent: #1ED9B6;
+  --muted-foreground: #23396c;
+  --accent: #1ed9b6;
   --accent-foreground: #fff;
   --destructive: #d7263d;
   --border: #ffffff1a;
@@ -48,6 +48,10 @@
 
 h1 {
   @apply text-primary text-2xl font-bold mb-4;
+}
+
+h2 {
+  @apply text-primary font-semibold mb-3.5;
 }
 
 h3 {

@@ -27,7 +27,7 @@ module.exports = {
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
-        
+
         // dark: {
         //   background: "var(--background)",
         //   title: "var(--title)",

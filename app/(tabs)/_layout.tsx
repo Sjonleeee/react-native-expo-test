@@ -8,7 +8,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#1ED9B6", 
+        tabBarActiveTintColor: "#1ED9B6",
         tabBarInactiveTintColor: "#444",
         tabBarStyle: {
           backgroundColor: "#fff",
@@ -19,12 +19,12 @@ export default function TabLayout() {
           height: 70,
         },
         tabBarLabelStyle: {
-          fontSize: 13, 
+          fontSize: 13,
           fontWeight: "600",
           marginBottom: 2,
         },
         tabBarIconStyle: {
-          marginTop: 2, 
+          marginTop: 2,
         },
         headerShown: false,
         tabBarButton: HapticTab,
@@ -37,7 +37,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="view-grid-outline"
-              size={20} 
+              size={20}
               color={color}
             />
           ),
@@ -63,7 +63,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="cloud-outline"
-              size={20} 
+              size={20}
               color={color}
             />
           ),

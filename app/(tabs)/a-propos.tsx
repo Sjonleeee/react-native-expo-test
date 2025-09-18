@@ -1,10 +1,10 @@
-import { Header } from "@/components/ui/Header";
+import { AppHeader } from "@/components/ui/AppHeader";
 import { ScrollView, Text, View } from "react-native";
 
 export default function AProposScreen() {
   return (
-    <View className="flex-1 bg-background ">
-      <Header />
+    <View className="flex-1 bg-background">
+      <AppHeader title="À propos" showBackButton />
       <View className="flex-1">
         <ScrollView className="flex-1 px-6 pt-8">
           {[1, 2, 3].map((i) => (
