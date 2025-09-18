@@ -12,9 +12,9 @@ export default function HomeScreen() {
       <AppHeader title="Aperçu" />
       <ScrollView>
         {/* Payments */}
-        <View className="px-4 mt-6">
-          <View className="flex-row items-center justify-between mb-2">
-            <Text className="text-xl font-bold text-foreground">
+        <View className="px-4 mt-8">
+          <View className="flex-row items-center justify-between ">
+            <Text className="text-xl font-bold text-foreground mb-4">
               Derniers paiements
             </Text>
             <TouchableOpacity
@@ -26,9 +26,7 @@ export default function HomeScreen() {
                 )
               }
             >
-              <Text className="text-sm text-primary underline font-medium">
-                voir tout
-              </Text>
+              <Text className="text-lg text-primary underline mb-4">voir tout</Text>
             </TouchableOpacity>
           </View>
           <PaymentCard
@@ -39,8 +37,10 @@ export default function HomeScreen() {
           />
         </View>
         {/* Mon dossier */}
-        <View className="px-4 mt-6">
-          <Text className="text-xl font-bold text-foreground">Mon dossier</Text>
+        <View className="px-4 mt-8">
+          <Text className="text-xl font-bold text-foreground mb-4">
+            Mon dossier
+          </Text>
           <InfoCard
             icon="file-document-outline"
             text="Dossier 1 géré par Madame Valérie SOUPART"
@@ -48,55 +48,72 @@ export default function HomeScreen() {
         </View>
 
         {/* Demandes */}
-        <View className="px-4 mt-4">
-          <Text className="text-xl font-bold text-foreground">Demandes</Text>
-          <View className="grid grid-cols-2 gap-4">
-            <RequestCard>
-              <MaterialCommunityIcons
-                name="currency-eur"
-                size={48}
-                color="#fff"
-              />
-              <Text className="text-base text-white font-medium">
-                Attestation de paiement
-              </Text>
-            </RequestCard>
-            <RequestCard>
-              <MaterialCommunityIcons
-                name="baby-face-outline"
-                size={48}
-                color="#fff"
-              />
-              <Text className="text-base text-white font-medium">
-                Prime de naissance anticipée
-              </Text>
-            </RequestCard>
-            <RequestCard>
-              <MaterialCommunityIcons
-                name="file-document-outline"
-                size={48}
-                color="#fff"
-              />
-              <Text className="text-base text-white font-medium">
-                Renvoi d un formulaire
-              </Text>
-            </RequestCard>
-            <RequestCard>
-              <MaterialCommunityIcons
-                name="file-document-outline"
-                size={48}
-                color="#fff"
-              />
-              <Text className="text-base text-white font-medium">
-                Demande de changement de numéro bancaire
-              </Text>
-            </RequestCard>
+        <View className="px-4 mt-8">
+          <Text className="text-xl font-bold text-foreground mb-4">
+            Demandes
+          </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              gap: 12,
+            }}
+          >
+            <View style={{ width: "48%" }}>
+              <RequestCard>
+                <MaterialCommunityIcons
+                  name="currency-eur"
+                  size={48}
+                  color="#fff"
+                />
+                <Text className="text-sm text-background text-center">
+                  Attestation de paiement
+                </Text>
+              </RequestCard>
+            </View>
+            <View style={{ width: "48%" }}>
+              <RequestCard>
+                <MaterialCommunityIcons
+                  name="baby-face-outline"
+                  size={48}
+                  color="#fff"
+                />
+                <Text className="text-sm text-background text-center">
+                  Prime de naissance anticipée
+                </Text>
+              </RequestCard>
+            </View>
+            <View style={{ width: "48%" }}>
+              <RequestCard>
+                <MaterialCommunityIcons
+                  name="file-document-outline"
+                  size={48}
+                  color="#fff"
+                />
+                <Text className="text-sm text-background text-center">
+                  Renvoi d un formulaire
+                </Text>
+              </RequestCard>
+            </View>
+            <View style={{ width: "48%" }}>
+              <RequestCard>
+                <MaterialCommunityIcons
+                  name="file-document-outline"
+                  size={48}
+                  color="#fff"
+                />
+                <Text className="text-sm text-background text-center">
+                  Demande de changement de numéro bancaire
+                </Text>
+              </RequestCard>
+            </View>
           </View>
         </View>
 
         {/* Gestionnaire de dossier */}
-        <View className="px-4 mt-4">
-          <Text className="text-xl font-bold text-foreground">
+        <View className="px-4 mt-8">
+          <Text className="text-xl font-bold text-foreground mb-4">
             Gestionnaire de dossier
           </Text>
           <InfoCard icon="account-outline" text="Madame Valérie SOUPART" />

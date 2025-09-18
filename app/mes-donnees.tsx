@@ -1,7 +1,7 @@
+import { ActionButton } from "@/components/custom/action-button";
 import { DataRow } from "@/components/custom/data-row";
 import { AppHeader } from "@/components/ui/AppHeader";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
@@ -19,11 +19,13 @@ export default function MesDonneesScreen() {
         {/* Profile Circle */}
         <View className="flex items-center mt-8 mb-2">
           <Avatar className="w-32 h-32" alt="Michael Jackson">
-            <AvatarFallback className="bg-accent text-background text-3xl font-bold">
-              MJ
+            <AvatarFallback className="bg-accent text-background">
+              <Text className="text-3xl font-bold text-background">MJ</Text>
             </AvatarFallback>
           </Avatar>
-          <h1 className="mt-6">Michael Jackson</h1>
+          <Text className="text-primary text-2xl font-bold mt-6">
+            Michael Jackson
+          </Text>
         </View>
         {/* Personal Info */}
         <View className="flex px-6 mt-6">
@@ -31,9 +33,11 @@ export default function MesDonneesScreen() {
             <MaterialCommunityIcons
               name="account-circle-outline"
               size={28}
-              color="var(--primary)"
+              color={"var(--primary)"}
             />
-            <h2 className="m-0">Mes informations personnelles</h2>
+            <Text className="text-primary font-semibold text-lg m-0">
+              Mes informations personnelles
+            </Text>
           </View>
           <DataRow label="Nom" value="Michael Jackson" />
           <DataRow
@@ -52,27 +56,20 @@ export default function MesDonneesScreen() {
             <MaterialCommunityIcons
               name="send"
               size={28}
-              color="var(--primary)"
+              color={"var(--primary)"}
             />
-            <h2 className="m-0">Mes données de contact</h2>
+            <Text className="text-primary font-semibold text-lg m-0">
+              Mes données de contact
+            </Text>
           </View>
           <DataRow label="Numéro téléphone" value="+32 463 96 63 63" />
           <DataRow label="Adresse e-mail" value="michael.jackson@beatit.be" />
         </View>
         {/* Button */}
         <View className="flex px-6 mt-8 mb-8">
-          <Button
-            className="flex flex-row items-center justify-center rounded-full py-4"
-            onPress={handleOpenMoved}
-          >
-            <MaterialCommunityIcons
-              name="information-outline"
-              size={20}
-              color="#fff"
-              style={{ marginRight: 8 }}
-            />
-            <Text className="font-semibold m-0">Vous avez déménagé</Text>
-          </Button>
+          <ActionButton icon="information-outline" onPress={handleOpenMoved}>
+            Vous avez déménagé
+          </ActionButton>
         </View>
       </ScrollView>
     </View>

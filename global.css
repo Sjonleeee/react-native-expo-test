@@ -46,18 +46,3 @@
   --ring: #8e8e8e;
 }
 
-h1 {
-  @apply text-primary text-2xl font-bold mb-4;
-}
-
-h2 {
-  @apply text-primary font-semibold mb-3.5;
-}
-
-h3 {
-  @apply text-mutedForeground font-semibold mb-2;
-}
-
-p {
-  @apply text-sm text-gray-800 leading-6;
-}
