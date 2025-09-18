@@ -14,7 +14,9 @@ export default function HomeScreen() {
         {/* Payments */}
         <View className="px-4 mt-6">
           <View className="flex-row items-center justify-between mb-2">
-            <h3>Derniers paiements</h3>
+            <Text className="text-xl font-bold text-foreground">
+              Derniers paiements
+            </Text>
             <TouchableOpacity
               onPress={() =>
                 window?.dispatchEvent(
@@ -38,7 +40,7 @@ export default function HomeScreen() {
         </View>
         {/* Mon dossier */}
         <View className="px-4 mt-6">
-          <h3>Mon dossier</h3>
+          <Text className="text-xl font-bold text-foreground">Mon dossier</Text>
           <InfoCard
             icon="file-document-outline"
             text="Dossier 1 géré par Madame Valérie SOUPART"
@@ -47,7 +49,7 @@ export default function HomeScreen() {
 
         {/* Demandes */}
         <View className="px-4 mt-4">
-          <h3>Demandes</h3>
+          <Text className="text-xl font-bold text-foreground">Demandes</Text>
           <View className="grid grid-cols-2 gap-4">
             <RequestCard>
               <MaterialCommunityIcons
@@ -55,7 +57,9 @@ export default function HomeScreen() {
                 size={48}
                 color="#fff"
               />
-              Attestation de paiement
+              <Text className="text-base text-white font-medium">
+                Attestation de paiement
+              </Text>
             </RequestCard>
             <RequestCard>
               <MaterialCommunityIcons
@@ -63,7 +67,9 @@ export default function HomeScreen() {
                 size={48}
                 color="#fff"
               />
-              Prime de naissance anticipée
+              <Text className="text-base text-white font-medium">
+                Prime de naissance anticipée
+              </Text>
             </RequestCard>
             <RequestCard>
               <MaterialCommunityIcons
@@ -71,7 +77,9 @@ export default function HomeScreen() {
                 size={48}
                 color="#fff"
               />
-              Renvoi d un formulaire
+              <Text className="text-base text-white font-medium">
+                Renvoi d un formulaire
+              </Text>
             </RequestCard>
             <RequestCard>
               <MaterialCommunityIcons
@@ -79,14 +87,18 @@ export default function HomeScreen() {
                 size={48}
                 color="#fff"
               />
-              Demande de changement de numéro bancaire
+              <Text className="text-base text-white font-medium">
+                Demande de changement de numéro bancaire
+              </Text>
             </RequestCard>
           </View>
         </View>
 
         {/* Gestionnaire de dossier */}
         <View className="px-4 mt-4">
-          <h3>Gestionnaire de dossier</h3>
+          <Text className="text-xl font-bold text-foreground">
+            Gestionnaire de dossier
+          </Text>
           <InfoCard icon="account-outline" text="Madame Valérie SOUPART" />
           <InfoCard icon="phone-outline" text="+32 2 237 25 00" />
           <InfoCard icon="email-outline" text="valerie.soupart@famifed.be" />

@@ -1,7 +1,7 @@
 import { DataRow } from "@/components/custom/data-row";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 export default function GestionnaireDeDossierScreen() {
   return (
@@ -10,10 +10,12 @@ export default function GestionnaireDeDossierScreen() {
         <View className="flex items-center mt-8 mb-2">
           <Avatar className="w-32 h-32" alt="Valérie Soupart">
             <AvatarFallback className="bg-accent text-background text-3xl font-bold">
-              VS
+              <Text className="text-3xl font-bold text-background">VS</Text>
             </AvatarFallback>
           </Avatar>
-          <h1 className="mt-6">Valérie Soupart</h1>
+          <Text className="mt-6 text-primary text-xl font-bold">
+            Valérie Soupart
+          </Text>
         </View>
         {/* Contact Info */}
         <View className="flex px-6 mt-6">
@@ -23,7 +25,9 @@ export default function GestionnaireDeDossierScreen() {
               size={28}
               color="var(--primary)"
             />
-            <h2 className=" m-0 p-0">Données de contact</h2>
+            <Text className="text-primary text-lg font-bold m-0 p-0">
+              Données de contact
+            </Text>
           </View>
           <DataRow label="Numéro téléphone" value="+32 463 96 63 63" />
           <DataRow label="Adresse e-mail" value="valerie.soupart@famifed.be" />

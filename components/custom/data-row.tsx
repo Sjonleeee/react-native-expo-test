@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 export function DataRow({
   label,
@@ -28,10 +28,10 @@ export function DataRow({
           />
         )}
         <View className="flex-1">
-          <p className="text-xs text-muted-foreground mb-0.5">{label}</p>
-          <p className="text-base text-foreground whitespace-pre-line">
+          <Text className="text-xs text-muted-foreground mb-0.5">{label}</Text>
+          <Text className="text-base text-foreground whitespace-pre-line">
             {value}
-          </p>
+          </Text>
         </View>
       </View>
     </View>

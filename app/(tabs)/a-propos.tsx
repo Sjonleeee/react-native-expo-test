@@ -9,18 +9,15 @@ export default function AProposScreen() {
         <ScrollView className="flex-1 px-6 pt-8">
           {[1, 2, 3].map((i) => (
             <View key={i} className="mb-8 flex flex-col">
-              <Text>
-                <h1>Accès et sécurité</h1>
+              <Text className="text-primary text-3xl font-bold mb-2">
+                Accès et sécurité
               </Text>
-              <Text>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse volutpat maximus diam, nec sollicitudin turpis.
-                  Duis tincidunt mattis nulla, eu lacinia ligula. Vestibulum sit
-                  amet auctor ex. In hac habitasse platea dictumst. Aenean
-                  dignissim, nibh non pharetra pretium, augue erat pulvinar
-                  velit
-                </p>
+              <Text className="text-base text-foreground">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse volutpat maximus diam, nec sollicitudin turpis. Duis
+                tincidunt mattis nulla, eu lacinia ligula. Vestibulum sit amet
+                auctor ex. In hac habitasse platea dictumst. Aenean dignissim,
+                nibh non pharetra pretium, augue erat pulvinar velit
               </Text>
             </View>
           ))}
