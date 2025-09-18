@@ -3,7 +3,6 @@ import { DataRow } from "@/components/custom/data-row";
 import { AppHeader } from "@/components/ui/AppHeader";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Text } from "@/components/ui/text";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { ScrollView, View } from "react-native";
 
@@ -28,43 +27,26 @@ export default function MesDonneesScreen() {
           </Text>
         </View>
         {/* Personal Info */}
-        <View className="flex px-6 mt-6">
-          <View className="flex flex-row items-center gap-2 mb-2">
-            <MaterialCommunityIcons
-              name="account-circle-outline"
-              size={28}
-              color={"var(--primary)"}
-            />
-            <Text className="text-primary font-semibold text-lg m-0">
-              Mes informations personnelles
-            </Text>
-          </View>
-          <DataRow label="Nom" value="Michael Jackson" />
-          <DataRow
-            label="Adresse"
-            value={"6 Rue d’indépendance\n1000 BRUXELLES"}
-          />
-          <DataRow label="Date de naissance" value="19 septembre 1945" />
-          <DataRow
-            label="Numéro de registre nationale"
-            value="63.56.12-411.22"
-          />
-        </View>
+        <DataRow
+          sectionTitle="Mes informations personnelles"
+          sectionIcon="account-circle-outline"
+          className="mt-6"
+        />
+        <DataRow label="Nom" value="Michael Jackson" />
+        <DataRow
+          label="Adresse"
+          value={"6 Rue d’indépendance\n1000 BRUXELLES"}
+        />
+        <DataRow label="Date de naissance" value="19 septembre 1945" />
+        <DataRow label="Numéro de registre nationale" value="63.56.12-411.22" />
         {/* Contact Info */}
-        <View className="flex px-6 mt-6">
-          <View className="flex flex-row items-center gap-2 mb-2">
-            <MaterialCommunityIcons
-              name="send"
-              size={28}
-              color={"var(--primary)"}
-            />
-            <Text className="text-primary font-semibold text-lg m-0">
-              Mes données de contact
-            </Text>
-          </View>
-          <DataRow label="Numéro téléphone" value="+32 463 96 63 63" />
-          <DataRow label="Adresse e-mail" value="michael.jackson@beatit.be" />
-        </View>
+        <DataRow
+          sectionTitle="Mes données de contact"
+          sectionIcon="send"
+          className="mt-6"
+        />
+        <DataRow label="Numéro téléphone" value="+32 463 96 63 63" />
+        <DataRow label="Adresse e-mail" value="michael.jackson@beatit.be" />
         {/* Button */}
         <View className="flex px-6 mt-8 mb-8">
           <ActionButton icon="information-outline" onPress={handleOpenMoved}>

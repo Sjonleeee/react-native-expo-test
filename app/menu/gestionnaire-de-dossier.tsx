@@ -1,6 +1,5 @@
 import { DataRow } from "@/components/custom/data-row";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
 export default function GestionnaireDeDossierScreen() {
@@ -18,20 +17,13 @@ export default function GestionnaireDeDossierScreen() {
           </Text>
         </View>
         {/* Contact Info */}
-        <View className="flex px-6 mt-6">
-          <View className="flex flex-row items-center space-x-2 mb-2">
-            <MaterialCommunityIcons
-              name="send"
-              size={28}
-              color="var(--primary)"
-            />
-            <Text className="text-primary text-lg font-bold m-0 p-0">
-              Données de contact
-            </Text>
-          </View>
-          <DataRow label="Numéro téléphone" value="+32 463 96 63 63" />
-          <DataRow label="Adresse e-mail" value="valerie.soupart@famifed.be" />
-        </View>
+        <DataRow
+          sectionTitle="Données de contact"
+          sectionIcon="send"
+          className="mt-6"
+        />
+        <DataRow label="Numéro téléphone" value="+32 463 96 63 63" />
+        <DataRow label="Adresse e-mail" value="valerie.soupart@famifed.be" />
       </View>
     </View>
   );
