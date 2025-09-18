@@ -53,7 +53,7 @@ export function AppHeader({
           {title}
         </Text>
         <TouchableOpacity
-          onPress={onProfilePress}
+          onPress={onProfilePress || (() => navigation.navigate("mes-donnees"))}
           className="items-center justify-center"
           accessible={true}
           accessibilityRole="button"

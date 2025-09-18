@@ -37,7 +37,7 @@ export default function RootLayout() {
         />
         <Stack.Screen name="mes-donnees" options={{ headerShown: false }} />
         <Stack.Screen
-          name="gestionnaire-de-dossier"
+          name="menu/gestionnaire-de-dossier"
           options={{
             header: () => (
               <AppHeader title="Gestionnaire de dossier" showBackButton />
@@ -45,13 +45,13 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="derniers-paiements"
+          name="menu/derniers-paiements"
           options={{
             header: () => <AppHeader title="Derniers paiements" showBackButton />,
           }}
         />
         <Stack.Screen
-          name="attestation-de-paiement"
+          name="menu/attestation-de-paiement"
           options={{
             header: () => (
               <AppHeader title="Attestation de paiement" showBackButton />
@@ -59,7 +59,7 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="prime-de-naissance-anticipee"
+          name="menu/prime-de-naissance-anticipee"
           options={{
             header: () => (
               <AppHeader title="Prime de naissance anticipée" showBackButton />
@@ -67,13 +67,13 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="renvoi-formulaire"
+          name="menu/renvoi-formulaire"
           options={{
             header: () => <AppHeader title="Renvoi d’un formulaire" showBackButton />,
           }}
         />
         <Stack.Screen
-          name="demande-changement-carte-bancaire"
+          name="menu/demande-changement-carte-bancaire"
           options={{
             header: () => (
               <AppHeader title="Demande de changement de carte bancaire" showBackButton />
@@ -81,17 +81,9 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="langue"
+          name="menu/langue"
           options={{
             header: () => <AppHeader title="Langue" showBackButton />,
-          }}
-        />
-        <Stack.Screen
-          name="a-propos"
-          options={{
-            header: () => (
-              <AppHeader title="A propos de My Famiris" showBackButton />
-            ),
           }}
         />
       </Stack>

@@ -1,3 +1,4 @@
+import { MenuRow } from "@/components/custom/menu-row";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
@@ -6,7 +7,7 @@ export default function MenuScreen() {
   const router = useRouter();
   return (
     <View className="flex-1 bg-background">
-      <View className="px-4 pt-6">
+      <View className="px-4 pt-6 flex flex-col">
         {/* Mon dossier section */}
         <View className="flex-row items-center justify-between mb-2">
           <View className="flex-row items-center">
@@ -26,21 +27,15 @@ export default function MenuScreen() {
           </TouchableOpacity>
         </View>
         <View className="border-b border-border mb-2" />
-        <TouchableOpacity
-          className="py-3"
+        <MenuRow
+          label="Mes données"
           onPress={() => router.push("/mes-donnees")}
-        >
-          <Text className="text-base text-foreground">Mes données</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/gestionnaire-de-dossier")}
-        >
-          <Text className="text-base text-foreground">
-            Gestionnaire de dossier
-          </Text>
-        </TouchableOpacity>
-        <View className="border-b border-border mb-2" />
+        />
+        <MenuRow
+          label="Gestionnaire de dossier"
+          onPress={() => router.push("/menu/gestionnaire-de-dossier")}
+        />
+        <View className="mb-2" />
         {/* Mes paiements section */}
         <View className="flex-row items-center mb-2 mt-4">
           <MaterialCommunityIcons name="seal" size={24} color="#23396C" />
@@ -49,13 +44,11 @@ export default function MenuScreen() {
           </Text>
         </View>
         <View className="border-b border-border mb-2" />
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/derniers-paiements")}
-        >
-          <Text className="text-base text-foreground">Derniers paiements</Text>
-        </TouchableOpacity>
-        <View className="border-b border-border mb-2" />
+        <MenuRow
+          label="Derniers paiements"
+          onPress={() => router.push("/menu/derniers-paiements")}
+        />
+        <View className="mb-2" />
         {/* Mes demandes section */}
         <View className="flex-row items-center mb-2 mt-4">
           <MaterialCommunityIcons
@@ -68,39 +61,23 @@ export default function MenuScreen() {
           </Text>
         </View>
         <View className="border-b border-border mb-2" />
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/attestation-de-paiement")}
-        >
-          <Text className="text-base text-foreground">
-            Attestation de paiement
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/prime-de-naissance-anticipee")}
-        >
-          <Text className="text-base text-foreground">
-            Prime de naissance anticipée
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/renvoi-formulaire")}
-        >
-          <Text className="text-base text-foreground">
-            Renvoi d’un formulaire
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/demande-changement-carte-bancaire")}
-        >
-          <Text className="text-base text-foreground">
-            Demande de changement de carte bancaire
-          </Text>
-        </TouchableOpacity>
-        <View className="border-b border-border mb-2" />
+        <MenuRow
+          label="Attestation de paiement"
+          onPress={() => router.push("/menu/attestation-de-paiement")}
+        />
+        <MenuRow
+          label="Prime de naissance anticipée"
+          onPress={() => router.push("/menu/prime-de-naissance-anticipee")}
+        />
+        <MenuRow
+          label="Renvoi d’un formulaire"
+          onPress={() => router.push("/menu/renvoi-formulaire")}
+        />
+        <MenuRow
+          label="Demande de changement de carte bancaire"
+          onPress={() => router.push("/menu/demande-changement-carte-bancaire")}
+        />
+        <View className="mb-2" />
         {/* Réglages section */}
         <View className="flex-row items-center mb-2 mt-4">
           <MaterialCommunityIcons
@@ -111,21 +88,12 @@ export default function MenuScreen() {
           <Text className="ml-2 text-lg font-bold text-primary">Réglages</Text>
         </View>
         <View className="border-b border-border mb-2" />
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/langue")}
-        >
-          <Text className="text-base text-foreground">Langue</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="py-3"
-          onPress={() => router.push("/a-propos")}
-        >
-          <Text className="text-base text-foreground">
-            A propos de My Famiris
-          </Text>
-        </TouchableOpacity>
-        <View className="border-b border-border mb-2" />
+        <MenuRow label="Langue" onPress={() => router.push("/menu/langue")} />
+        <MenuRow
+          label="A propos de My Famiris"
+          onPress={() => router.push("/(tabs)/a-propos")}
+        />
+        <View />
       </View>
     </View>
   );
