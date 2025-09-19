@@ -10,7 +10,7 @@ export function ActionButton({
   className,
   ...props
 }: {
-  icon: string;
+  icon?: string;
   children: React.ReactNode;
   onPress?: () => void;
   className?: string;
@@ -25,12 +25,14 @@ export function ActionButton({
       )}
       {...props}
     >
-      <MaterialCommunityIcons
-        name={icon as any}
-        size={20}
-        color="#fff"
-        style={{ marginRight: 8, alignSelf: "center" }}
-      />
+      {icon && (
+        <MaterialCommunityIcons
+          name={icon as any}
+          size={20}
+          color="#fff"
+          style={{ marginRight: 8, alignSelf: "center" }}
+        />
+      )}
       <Text className="font-semibold text-background text-center">{children}</Text>
     </Pressable>
   );

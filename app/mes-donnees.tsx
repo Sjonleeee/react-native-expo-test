@@ -1,5 +1,6 @@
 import { ActionButton } from "@/components/custom/action-button";
 import { DataRow } from "@/components/custom/data-row";
+import { MovedModal } from "@/components/moved-modal";
 import { AppHeader } from "@/components/ui/AppHeader";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Text } from "@/components/ui/text";
@@ -7,12 +8,14 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 
 export default function MesDonneesScreen() {
+  const [showMovedModal, setShowMovedModal] = React.useState(false);
+
   const handleOpenMoved = () => {
-    // TODO: Implement navigation or modal for moved
+    setShowMovedModal(true);
   };
 
   return (
-    <View className="flex-1 bg-background">
+    <View className="relative flex-1 bg-background">
       <AppHeader title="Mes données" showBackButton />
       <ScrollView className="flex-1">
         {/* Profile Circle */}
@@ -54,6 +57,7 @@ export default function MesDonneesScreen() {
           </ActionButton>
         </View>
       </ScrollView>
+      <MovedModal visible={showMovedModal} onClose={() => setShowMovedModal(false)} />
     </View>
   );
 }
