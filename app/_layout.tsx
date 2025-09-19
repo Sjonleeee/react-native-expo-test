@@ -44,13 +44,13 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="menu/derniers-paiements"
+          name="menu/latest-payments"
           options={{
             header: () => <AppHeader title="Derniers paiements" showBackButton />,
           }}
         />
         <Stack.Screen
-          name="menu/attestation-de-paiement"
+          name="menu/payment-certificate"
           options={{
             header: () => (
               <AppHeader title="Attestation de paiement" showBackButton />
@@ -58,7 +58,7 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="menu/prime-de-naissance-anticipee"
+          name="menu/early-birth-bonus"
           options={{
             header: () => (
               <AppHeader title="Prime de naissance anticipée" showBackButton />
@@ -66,13 +66,13 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="menu/renvoi-formulaire"
+          name="menu/return-form"
           options={{
             header: () => <AppHeader title="Renvoi d’un formulaire" showBackButton />,
           }}
         />
         <Stack.Screen
-          name="menu/demande-changement-carte-bancaire"
+          name="menu/request-change-bank-card"
           options={{
             header: () => (
               <AppHeader title="Demande de changement de carte bancaire" showBackButton />
@@ -80,9 +80,15 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="menu/langue"
+          name="menu/language"
           options={{
             header: () => <AppHeader title="Langue" showBackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="menu/a-propos"
+          options={{
+            header: () => <AppHeader title="À propos" showBackButton />,
           }}
         />
       </Stack>

@@ -20,7 +20,7 @@ export default function HomeScreen() {
               Derniers paiements
             </Text>
             <TouchableOpacity
-              onPress={() => router.push("/menu/derniers-paiements")}
+              onPress={() => router.push("/menu/latest-payments")}
             >
               <Text className="text-lg text-primary underline mb-4">
                 voir tout
@@ -59,7 +59,9 @@ export default function HomeScreen() {
             }}
           >
             <View style={{ width: "48%" }}>
-              <TouchableOpacity onPress={() => router.push("/menu/attestation-de-paiement")}> 
+              <TouchableOpacity
+                onPress={() => router.push("/menu/payment-certificate")}
+              >
                 <RequestCard>
                   <MaterialCommunityIcons
                     name="currency-eur"
@@ -73,7 +75,9 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
             <View style={{ width: "48%" }}>
-              <TouchableOpacity onPress={() => router.push("/menu/prime-de-naissance-anticipee")}> 
+              <TouchableOpacity
+                onPress={() => router.push("/menu/early-birth-bonus")}
+              >
                 <RequestCard>
                   <MaterialCommunityIcons
                     name="baby-face-outline"
@@ -87,7 +91,9 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
             <View style={{ width: "48%" }}>
-              <TouchableOpacity onPress={() => router.push("/menu/renvoi-formulaire")}> 
+              <TouchableOpacity
+                onPress={() => router.push("/menu/return-form")}
+              >
                 <RequestCard>
                   <MaterialCommunityIcons
                     name="file-document-outline"
@@ -101,7 +107,9 @@ export default function HomeScreen() {
               </TouchableOpacity>
             </View>
             <View style={{ width: "48%" }}>
-              <TouchableOpacity onPress={() => router.push("/menu/demande-changement-carte-bancaire")}> 
+              <TouchableOpacity
+                onPress={() => router.push("/menu/request-change-bank-card")}
+              >
                 <RequestCard>
                   <MaterialCommunityIcons
                     name="file-document-outline"

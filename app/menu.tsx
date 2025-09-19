@@ -33,7 +33,7 @@ export default function MenuScreen() {
         />
         <MenuRow
           label="Gestionnaire de dossier"
-          onPress={() => router.push("/menu/gestionnaire-de-dossier")}
+          onPress={() => router.push("/menu/case-manager")}
         />
         <View className="mb-2" />
         {/* Mes paiements section */}
@@ -46,7 +46,7 @@ export default function MenuScreen() {
         <View className="border-b border-border mb-2" />
         <MenuRow
           label="Derniers paiements"
-          onPress={() => router.push("/menu/derniers-paiements")}
+          onPress={() => router.push("/menu/latest-payments")}
         />
         <View className="mb-2" />
         {/* Mes demandes section */}
@@ -62,20 +62,20 @@ export default function MenuScreen() {
         </View>
         <View className="border-b border-border mb-2" />
         <MenuRow
-          label="Attestation de paiement"
-          onPress={() => router.push("/menu/attestation-de-paiement")}
+          label="Payment certificate"
+          onPress={() => router.push("/menu/payment-certificate")}
         />
         <MenuRow
-          label="Prime de naissance anticipée"
-          onPress={() => router.push("/menu/prime-de-naissance-anticipee")}
+          label="Early birth allowance"
+          onPress={() => router.push("/menu/early-birth-bonus")}
         />
         <MenuRow
-          label="Renvoi d’un formulaire"
-          onPress={() => router.push("/menu/renvoi-formulaire")}
+          label="Resend a form"
+          onPress={() => router.push("/menu/return-form")}
         />
         <MenuRow
-          label="Demande de changement de carte bancaire"
-          onPress={() => router.push("/menu/demande-changement-carte-bancaire")}
+          label="Request bank card change"
+          onPress={() => router.push("/menu/request-change-bank-card")}
         />
         <View className="mb-2" />
         {/* Réglages section */}
@@ -88,7 +88,7 @@ export default function MenuScreen() {
           <Text className="ml-2 text-lg font-bold text-primary">Réglages</Text>
         </View>
         <View className="border-b border-border mb-2" />
-        <MenuRow label="Langue" onPress={() => router.push("/menu/langue")} />
+        <MenuRow label="Langue" onPress={() => router.push("/menu/language")} />
         <MenuRow
           label="A propos de My Famiris"
           onPress={() => router.push("/(tabs)/a-propos")}

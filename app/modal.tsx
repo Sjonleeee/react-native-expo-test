@@ -1,15 +1,21 @@
+import { Text } from "@/components/ui/text";
 import { Link } from "expo-router";
-
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
+import { View } from "react-native";
 
 export default function ModalScreen() {
   return (
-    <ThemedView className="flex-1 items-center justify-center p-5">
-      <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo className="mt-4 py-4">
-        <ThemedText type="link">Go to home screen</ThemedText>
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 20,
+      }}
+    >
+      <Text variant="h1">This is a modal</Text>
+      <Link href="/" dismissTo style={{ marginTop: 16, paddingVertical: 16 }}>
+        <Text>Go to home screen</Text>
       </Link>
-    </ThemedView>
+    </View>
   );
 }
