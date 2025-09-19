@@ -3,10 +3,12 @@ import { PaymentCard } from "@/components/custom/payment-card";
 import { RequestCard } from "@/components/custom/request-card";
 import { AppHeader } from "@/components/ui/AppHeader";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
+  const router = useRouter();
   return (
     <View className="flex-1 bg-background">
       <AppHeader title="Aperçu" />
@@ -18,15 +20,11 @@ export default function HomeScreen() {
               Derniers paiements
             </Text>
             <TouchableOpacity
-              onPress={() =>
-                window?.dispatchEvent(
-                  new CustomEvent("open-payments-modal", {
-                    detail: { onlyModal: true },
-                  })
-                )
-              }
+              onPress={() => router.push("/menu/derniers-paiements")}
             >
-              <Text className="text-lg text-primary underline mb-4">voir tout</Text>
+              <Text className="text-lg text-primary underline mb-4">
+                voir tout
+              </Text>
             </TouchableOpacity>
           </View>
           <PaymentCard
@@ -61,52 +59,60 @@ export default function HomeScreen() {
             }}
           >
             <View style={{ width: "48%" }}>
-              <RequestCard>
-                <MaterialCommunityIcons
-                  name="currency-eur"
-                  size={48}
-                  color="#fff"
-                />
-                <Text className="text-sm text-background text-center">
-                  Attestation de paiement
-                </Text>
-              </RequestCard>
+              <TouchableOpacity onPress={() => router.push("/menu/attestation-de-paiement")}> 
+                <RequestCard>
+                  <MaterialCommunityIcons
+                    name="currency-eur"
+                    size={48}
+                    color="#fff"
+                  />
+                  <Text className="text-sm text-background text-center">
+                    Attestation de paiement
+                  </Text>
+                </RequestCard>
+              </TouchableOpacity>
             </View>
             <View style={{ width: "48%" }}>
-              <RequestCard>
-                <MaterialCommunityIcons
-                  name="baby-face-outline"
-                  size={48}
-                  color="#fff"
-                />
-                <Text className="text-sm text-background text-center">
-                  Prime de naissance anticipée
-                </Text>
-              </RequestCard>
+              <TouchableOpacity onPress={() => router.push("/menu/prime-de-naissance-anticipee")}> 
+                <RequestCard>
+                  <MaterialCommunityIcons
+                    name="baby-face-outline"
+                    size={48}
+                    color="#fff"
+                  />
+                  <Text className="text-sm text-background text-center">
+                    Prime de naissance anticipée
+                  </Text>
+                </RequestCard>
+              </TouchableOpacity>
             </View>
             <View style={{ width: "48%" }}>
-              <RequestCard>
-                <MaterialCommunityIcons
-                  name="file-document-outline"
-                  size={48}
-                  color="#fff"
-                />
-                <Text className="text-sm text-background text-center">
-                  Renvoi d un formulaire
-                </Text>
-              </RequestCard>
+              <TouchableOpacity onPress={() => router.push("/menu/renvoi-formulaire")}> 
+                <RequestCard>
+                  <MaterialCommunityIcons
+                    name="file-document-outline"
+                    size={48}
+                    color="#fff"
+                  />
+                  <Text className="text-sm text-background text-center">
+                    Renvoi d un formulaire
+                  </Text>
+                </RequestCard>
+              </TouchableOpacity>
             </View>
             <View style={{ width: "48%" }}>
-              <RequestCard>
-                <MaterialCommunityIcons
-                  name="file-document-outline"
-                  size={48}
-                  color="#fff"
-                />
-                <Text className="text-sm text-background text-center">
-                  Demande de changement de numéro bancaire
-                </Text>
-              </RequestCard>
+              <TouchableOpacity onPress={() => router.push("/menu/demande-changement-carte-bancaire")}> 
+                <RequestCard>
+                  <MaterialCommunityIcons
+                    name="file-document-outline"
+                    size={48}
+                    color="#fff"
+                  />
+                  <Text className="text-sm text-background text-center">
+                    Demande de changement de numéro bancaire
+                  </Text>
+                </RequestCard>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
