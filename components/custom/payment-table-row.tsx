@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 export type PaymentTableRowProps = {
   date: string;
@@ -7,6 +7,7 @@ export type PaymentTableRowProps = {
   du: string;
   retenue: string;
   recu: string;
+  onPress?: () => void;
   className?: string;
   [key: string]: any;
 };
@@ -17,17 +18,21 @@ export function PaymentTableRow({
   du,
   retenue,
   recu,
+  onPress,
   className,
   ...props
 }: PaymentTableRowProps) {
+  const RowComponent = onPress ? Pressable : View;
   return (
-    <View
+    <RowComponent
       className={cn(
         "flex-row items-center py-3 border-b border-border",
+        onPress ? "active:opacity-70" : "",
         className
       )}
       style={{ borderBottomWidth: 0.5 }}
       {...props}
+      onPress={onPress}
     >
       <Text className="w-[60px] text-base text-foreground/90">{date}</Text>
       <Text className="w-[70px] text-base text-foreground/90">{month}</Text>
@@ -40,6 +45,6 @@ export function PaymentTableRow({
       <Text className="w-[70px] text-base font-bold text-right text-foreground">
         {recu} <Text className="font-normal text-xs">EUR</Text>
       </Text>
-    </View>
+    </RowComponent>
   );
 }

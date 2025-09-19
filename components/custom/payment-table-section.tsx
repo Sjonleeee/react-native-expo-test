@@ -5,12 +5,14 @@ import { PaymentTableRow, PaymentTableRowProps } from "./payment-table-row";
 export type PaymentTableSectionProps = {
   title: string;
   rows: PaymentTableRowProps[];
+  onRowPress?: (row: PaymentTableRowProps) => void;
   className?: string;
 };
 
 export function PaymentTableSection({
   title,
   rows,
+  onRowPress,
   className,
 }: PaymentTableSectionProps) {
   return (
@@ -23,6 +25,7 @@ export function PaymentTableSection({
           <PaymentTableRow
             key={i}
             {...row}
+            onPress={onRowPress ? () => onRowPress(row) : undefined}
             className={i === rows.length - 1 ? "border-b-0" : ""}
           />
         ))}
