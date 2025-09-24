@@ -36,7 +36,7 @@ export default function RootLayout() {
         />
         <Stack.Screen name="mes-donnees" options={{ headerShown: false }} />
         <Stack.Screen
-          name="menu/gestionnaire-de-dossier"
+          name="menu/case-manager"
           options={{
             header: () => (
               <AppHeader title="Gestionnaire de dossier" showBackButton />
@@ -46,7 +46,9 @@ export default function RootLayout() {
         <Stack.Screen
           name="menu/latest-payments"
           options={{
-            header: () => <AppHeader title="Derniers paiements" showBackButton />,
+            header: () => (
+              <AppHeader title="Derniers paiements" showBackButton />
+            ),
           }}
         />
         <Stack.Screen
@@ -68,14 +70,19 @@ export default function RootLayout() {
         <Stack.Screen
           name="menu/return-form"
           options={{
-            header: () => <AppHeader title="Renvoi d’un formulaire" showBackButton />,
+            header: () => (
+              <AppHeader title="Renvoi d’un formulaire" showBackButton />
+            ),
           }}
         />
         <Stack.Screen
           name="menu/request-change-bank-card"
           options={{
             header: () => (
-              <AppHeader title="Demande de changement de carte bancaire" showBackButton />
+              <AppHeader
+                title="Demande de changement de carte bancaire"
+                showBackButton
+              />
             ),
           }}
         />
